@@ -10,6 +10,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/nav', function () {
-    return view('template.nav');
+Route::get('/home', function () {
+    return view('user.home');
 });
