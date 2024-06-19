@@ -9,3 +9,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('auth');
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/nav', function () {
+    return view('template.nav');
+});
