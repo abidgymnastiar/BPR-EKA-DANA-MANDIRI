@@ -1,0 +1,23 @@
+name: cd
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  cd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy to production using SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /home/diy-projects.my.id/bpr-eka-dana-mandiri.diy-projects.my.id/
+            git pull origin main
+            php artisan optimize:clear
+            php artisan migrate:fresh --seed
+            npm run build
