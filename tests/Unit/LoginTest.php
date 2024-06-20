@@ -18,7 +18,7 @@ test('Cannot Access Login Page When Authenticated', function () {
     $user = User::factory()->create();
     $response = actingAs($user)->get('/login');
     $response->assertSessionHasNoErrors();
-    $response->assertRedirect('/');
+    $response->assertRedirect('/home');
 });
 
 test('Login Validation', function () {
