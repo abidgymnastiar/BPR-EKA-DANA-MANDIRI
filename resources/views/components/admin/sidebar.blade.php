@@ -25,7 +25,7 @@
                         </form>
                     </li>
                     <li>
-                        <a href="http://localhost:1313/soft-ui-flowbite/"
+                        <a href="{{ route('admin.dashboard') }}"
                             class="flex items-center py-2.5 px-4 text-base font-normal text-dark-500 rounded-lg hover:bg-gray-200 group  bg-white shadow-lg shadow-gray-200 hover:!bg-white  transition-all duration-200"
                             sidebar-toggle-collapse>
                             <div
@@ -55,7 +55,7 @@
                     </li>
 
                     <li>
-                        <a href="http://localhost:1313/soft-ui-flowbite/users"
+                        <a href="{{ route('admin.nasabah') }}"
                             class="flex items-center py-2.5 px-4 text-base font-normal text-dark-500 rounded-lg hover:bg-gray-200  group transition-all duration-200"
                             sidebar-toggle-collapse>
                             <div
@@ -80,7 +80,7 @@
                                     </g>
                                 </svg>
                             </div>
-                            <span class="ml-3 text-dark-500 text-sm font-light" sidebar-toggle-item>Users</span>
+                            <span class="ml-3 text-dark-500 text-sm font-light" sidebar-toggle-item>Nasabah</span>
                         </a>
                     </li>
                     <li>
