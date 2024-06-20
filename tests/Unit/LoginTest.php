@@ -52,7 +52,6 @@ it('cannot login with invalid email', function () {
         'password' => 'password'
     ]);
     $this->assertGuest();
-    // $response->dumpSession();
     $response->assertSessionHasErrors();
 });
 
