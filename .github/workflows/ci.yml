@@ -1,10 +1,8 @@
 name: PR WorkFlow
-
 on:
   pull_request:
     branches:
       - main
-
 jobs:
   app-tests:
     runs-on: ubuntu-latest
@@ -19,10 +17,16 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - uses: actions/checkout@v2
+      - name: Set up PHP 8.3
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          extensions: mbstring, pdo_mysql # Add any other extensions you need
+          tools: composer, phpunit # Add any tools you need
+      - name: Check PHP Version
+        run: php -v
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-      - name: List all branches and tags
-        run: git fetch --all && git branch -a && git tag
       - name: Update Composer Dependencies
         run: composer update -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist --ignore-platform-reqs
       - name: Install Composer Dependencies
@@ -36,4 +40,4 @@ jobs:
       - name: Execute tests (Unit and Feature tests) using PHPUnit
         env:
           DB_PORT: ${{ job.services.mysql.ports[3306] }}
-        run: ./vendor/bin/pest
+        run: ./vendor/bin/pest # Ensure your testing tool is compatible with PHP 8.3
