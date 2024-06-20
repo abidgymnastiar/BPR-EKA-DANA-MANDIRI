@@ -13,7 +13,7 @@ jobs:
         image: mysql:8.0.28
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_DATABASE: test_db
+          MYSQL_DATABASE: bpr_eka_dana_mandiri
         ports:
           - 3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -23,6 +23,8 @@ jobs:
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: List all branches and tags
         run: git fetch --all && git branch -a && git tag
+      - name: Update Composer Dependencies
+        run: composer update -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
       - name: Install Composer Dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
       - name: Install NPM Dependencies
