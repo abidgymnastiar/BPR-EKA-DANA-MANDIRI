@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', [AuthController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('auth');
 
-Route::get('/', function () {
-    return view('index');
+Route::get('login', function () {
+    return view('components.view.login');
 });
 
 Route::get('/home', function () {
