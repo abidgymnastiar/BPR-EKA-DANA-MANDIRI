@@ -26,7 +26,7 @@
 </head>
 
 <body class="bg-[#f1f4f5]">
-    <div class="mb-20">
+    <div class="">
         <x-user.nav />
     </div>
     {{ $slot }}
