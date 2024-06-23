@@ -1,6 +1,6 @@
 <x-layout.user>
     <div class="header ">
-        <img src="{{ asset('assets/user/banner/bb.png') }}" class="bg-cover" alt="">
+        <img src="{{ asset('assets/user/banner/banner1.png') }}" class="bg-cover" alt="">
     </div>
 
     </div>
@@ -24,15 +24,50 @@
         </div>
     </div>
     <section class="kredit max-w-screen-xl mx-auto mt-5">
-        <div class="grid grid-cols-2">
-            <div class="bg-yellow-300">
-                <i class="fa-solid fa-circle-xmark text-white text-2xl p-4 bg-[#1A4DBE] rounded-full mb-2"></i>
-                <h4 class="text-2xl text-[#055c2d] font-semibold font-sans mb-8">Smart Banking</h4>
-                <h1 class="text-6xl font-sans font-bold mb-4">Real time Notifications</h1>
-                <p>Your customer stay informed in real time with everything thats happening on his account: payments,
-                    transfer, advice. Get visibility on your customers' flows to anticipate their needs.</p>
+        <div class="grid grid-cols-2 items-center gap-x-5">
+            <div class="p-3">
+                <h3 class="text-lg font-medium font-sans text-red-700">Kredit Bank</h3>
+                <h1 class="text-[44px] font-sans font-extrabold mb-2 text-red-800">Pinjaman Cepat dan Mudah</h1>
+                <p class="text-[#2c3655] text-base tracking-wide mb-7">Nikmati layanan kredit kami dengan suku bunga
+                    kompetitif dan persyaratan yang mudah. Dari kredit pribadi hingga kredit usaha, kami siap membantu
+                    Anda mencapai tujuan finansial Anda. Dapatkan akses cepat dan aman ke dana yang Anda butuhkan dengan
+                    Kredit Bank.</p>
+                <ul class=" space-y-3.5 text-black font-sans list-inside dark:text-gray-400 text-base mb-9">
+                    <li class="flex items-center">
+                        <svg class="w-5 h-w-5 me-2 text-red-400 dark:text-green-400 flex-shrink-0" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        Dapatkan persetujuan kredit dalam waktu singkat.
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-w-5 me-2 text-red-400 dark:text-green-400 flex-shrink-0" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        Manfaatkan suku bunga yang kompetitif untuk pinjaman Anda.
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-w-5 me-2 text-gray-500 dark:text-gray-400 flex-shrink-0" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                        </svg>
+                        Pilihan tenor yang fleksibel sesuai kebutuhan Anda.
+                    </li>
+                </ul>
+                <button type="button"
+                    class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Pesan
+                    Sekarang</button>
             </div>
-            <div class="bg-gray-200"></div>
+
+            <div class="image p-3">
+                <img class="w-[540px]"
+                    src="https://softivuspro.com/wp/bankio/wp-content/uploads/2023/12/feature-item-1-1-4.png"
+                    alt="">
+            </div>
         </div>
 
     </section>
