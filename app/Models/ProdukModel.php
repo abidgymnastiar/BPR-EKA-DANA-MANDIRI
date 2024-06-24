@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
@@ -15,6 +16,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $stok
  * @property mixed $gambar
  * @property int $kategori_id
+ * @property int $author
  * @property mixed $foto
  * @property-read FotoProdukModel[] $foto_produk
  * @package App\Models
@@ -30,14 +32,35 @@ class ProdukModel extends Model
         'harga',
         'stok',
         'gambar',
-        'kategori_id'
+        'kategori_id',
+        'author',
     ];
 
-    public function kategori()
+    /**
+     * Get the author of the product.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function author(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'author', 'id');
+    }
+
+    /**
+     * Get the category of the product.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function kategori(): BelongsTo
     {
         return $this->belongsTo(KategoriProdukModel::class, 'kategori_id', 'id');
     }
 
+    /**
+     * Get the photos of the product.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function foto_produk(): HasMany
     {
         return $this->hasMany(FotoProdukModel::class, 'produk_id', 'id');

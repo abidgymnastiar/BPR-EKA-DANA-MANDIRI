@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->timestamps();
 
             $table->foreignId('kategori_id')->references('id')->on('tb_kategori_produk');
+            $table->foreignId('author')->references('id')->on('users');
         });
     }
 

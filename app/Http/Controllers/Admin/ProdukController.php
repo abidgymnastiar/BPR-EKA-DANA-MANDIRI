@@ -30,6 +30,7 @@ class ProdukController extends Controller
             $produk->stok = $request->stok;
             $produk->gambar = $request->gambar->hashName();
             $produk->kategori_id = $request->kategori_id;
+            $produk->author = auth()->id();
             $produk->save();
             $request->file('gambar')->storeAs('public/produk', $request->file('gambar')->hashName());
             if ($request->hasFile('foto')) {
@@ -107,6 +108,7 @@ class ProdukController extends Controller
             $produk->deskripsi = $request->deskripsi;
             $produk->harga = $request->harga;
             $produk->stok = $request->stok;
+            $produk->author = auth()->id();
             $produk->kategori_id = $request->kategori_id;
             if ($request->hasFile('gambar')) {
                 if ($produk->gambar) {

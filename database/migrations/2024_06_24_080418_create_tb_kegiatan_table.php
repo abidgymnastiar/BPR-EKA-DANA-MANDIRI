@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->dateTime('tgl_mulai');
             $table->dateTime('tgl_selesai');
             $table->timestamps();
+            $table->foreignId('author')->references('id')->on('users');
         });
     }
 
