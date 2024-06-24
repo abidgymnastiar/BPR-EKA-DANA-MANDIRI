@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\KegiatanController;
 use App\Http\Controllers\Admin\NasabahController;
 use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\Auth\AuthController;
@@ -14,8 +15,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [NasabahController::class, 'index'])->name('nasabah');
     });
     // Kegiatan
-    Route::prefix('Kegiatan')->group(function () {
-        Route::get('/', [NasabahController::class, 'index'])->name('nasabah');
+    Route::prefix('kegiatan')->group(function () {
+        Route::get('/', [KegiatanController::class, 'index'])->name('kegiatan');
+        Route::post('/store', [KegiatanController::class, 'store'])->name('kegiatan.store');
+        Route::delete('/delete/{id}', [KegiatanController::class, 'delete'])->name('kegiatan.delete');
+        Route::post('/kategori/store', [KegiatanController::class, 'store_kategori'])->name('kegiatan.kategori.store');
+
     });
     // Produk
     Route::prefix('produk')->group(function () {
