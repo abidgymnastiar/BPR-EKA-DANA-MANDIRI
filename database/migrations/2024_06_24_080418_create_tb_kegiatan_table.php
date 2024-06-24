@@ -13,9 +13,10 @@ return new class extends Migration {
         Schema::create('tb_kegiatan', function (Blueprint $table) {
             $table->id();
             $table->string('nama_kegiatan');
-            $table->string('isi');
+            $table->text('isi');
             $table->dateTime('tgl_mulai');
             $table->dateTime('tgl_selesai');
+            $table->string('gambar');
             $table->timestamps();
             $table->foreignId('author')->references('id')->on('users');
         });
