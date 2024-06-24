@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PORTAL RW</title>
-    <script defer src="{{ asset('assets/js/bundle.js') }}"></script>
+    <title>{{ config('app.name') }}</title>
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     {{-- <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css') }}"> --}}
     {{-- <script src="{{ asset('assets/js/fontawesome.min.js') }}"></script> --}}
@@ -16,39 +15,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"
         integrity="sha512-u3fPA7V8qQmhBPNT5quvaXVa1mnnLSXUep5PS1qo5NRzHwG19aHmNJnj1Q8hpA/nBWZtZD4r4AX6YOt5ynLN2g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="{{ asset('assets/css/flowbite.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/user/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="{{ asset('assets/js/flowbite.min.js') }}"></script>
     <script defer src="https://unpkg.com/tailwindcss-intersect@1.x.x/dist/observer.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="bg-[#f1f4f5]">
-    {{-- <div class="mb-20">
-        <x-user.nav />
-    </div> --}}
     {{ $slot }}
-    {{-- <x-user.footer /> --}}
 </body>
-{{-- <script>
-    document.addEventListener('alpine:init', () => {
-        Alpine.directive('log', (el, {
-            expression
-        }, {
-            evaluateLater,
-            effect
-        }) => {
-            let getThingToLog = evaluateLater(expression)
-
-            effect(() => {
-                getThingToLog(thingToLog => {
-                    console.log(thingToLog)
-                })
-            })
-        })
-    })
-</script> --}}
 
 </html>
