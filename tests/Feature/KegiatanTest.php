@@ -76,3 +76,27 @@ it('can delete kegiatan', function () {
     $response->assertStatus(302)->assertRedirect('/admin/kegiatan');
     $response->assertSessionHas('success', 'Kegiatan berhasil dihapus');
 });
+
+// update kegiatan
+it('can update kegiatan', function () {
+    KategoriKegiatanModel::factory(5)->create()->each(function ($kategori) {
+        $this->kategori[] = $kategori->id;
+    });
+    $kegiatan = KegiatanModel::factory()->create();
+    KegiatanKegiatanKategoriModel::factory(2)->create([
+        'kegiatan_id' => $kegiatan->id,
+        'kegiatan_kategori_id' => $this->kategori[random_int(0, 4)],
+    ]);
+    $response = actingAs($this->user)->put(route('admin.kegiatan.update', $kegiatan->id), [
+        csrf_field(),
+        '_method' => 'PUT',
+        'nama_kegiatan' => 'Kegiatan Baru',
+        'isi' => fake()->paragraph(3),
+        'tgl_mulai' => fake()->dateTime()->format('Y-m-d H:i:s'),
+        'tgl_selesai' => fake()->dateTime()->format('Y-m-d H:i:s'),
+        'gambar' => UploadedFile::fake()->image('gambar.jpg'),
+        'kategori' => $this->kategori,
+    ]);
+    $response->assertStatus(302)->assertRedirect('/admin/kegiatan');
+    $response->assertSessionHas('success', 'Kegiatan berhasil diubah');
+});
