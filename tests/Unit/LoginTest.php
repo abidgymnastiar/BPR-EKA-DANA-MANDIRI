@@ -8,7 +8,12 @@ use function Pest\Laravel\get;
 
 uses(RefreshDatabase::class);
 
+test('Redirect to Setup Page When No Users', function () {
+    $response = get('/login');
+    $response->assertRedirect('/setup');
+});
 test('Login Page', function () {
+    User::factory()->create();
     $response = get('/login');
     $response->assertStatus(200);
     assertGuest();
@@ -27,7 +32,6 @@ test('Login Validation', function () {
 });
 
 it('can login with valid credentials', function () {
-    // refresh database
     User::factory()->create([
         'email' => 'edo@gmail.com',
         'password' => bcrypt('password')
@@ -37,7 +41,7 @@ it('can login with valid credentials', function () {
         'email' => 'edo@gmail.com',
         'password' => 'password'
     ]);
-    $response->assertRedirect('/');
+    $response->assertRedirect('/home');
     $this->assertAuthenticated();
 });
 

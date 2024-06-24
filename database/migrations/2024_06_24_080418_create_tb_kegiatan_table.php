@@ -10,16 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('tb_produk', function (Blueprint $table) {
+        Schema::create('tb_kegiatan', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_produk');
-            $table->text('deskripsi');
-            $table->integer('harga');
-            $table->integer('stok');
-            $table->string('gambar');
+            $table->string('nama_kegiatan');
+            $table->string('isi');
+            $table->dateTime('tgl_mulai');
+            $table->dateTime('tgl_selesai');
             $table->timestamps();
-
-            $table->foreignId('kategori_id')->references('id')->on('tb_kategori_produk');
             $table->foreignId('author')->references('id')->on('users');
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('tb_product');
+        Schema::dropIfExists('tb_kegiatan');
     }
 };
