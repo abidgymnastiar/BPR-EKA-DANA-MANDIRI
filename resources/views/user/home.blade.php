@@ -1,7 +1,23 @@
 <x-layout.user>
-    <div class="header ">
-        <img src="{{ asset('assets/user/banner/banner1.png') }}" class="bg-cover" alt="">
-    </div>
+    <section class="header ">
+
+        <div class="swiper mySwiperheader">
+            <div class="swiper-wrapper h-full w-full">
+                <div class="swiper-slide text-center ">
+                    <img class="h-full  mx-auto" src="{{ asset('assets/user/banner/header1.png') }}" alt="">
+                </div>
+                <div class="swiper-slide text-center ">
+                    <img class="h-full mx-auto" src="{{ asset('assets/user/banner/header2.png') }}" alt="">
+                </div>
+                <div class="swiper-slide text-center ">
+                    <img class="h-full mx-auto" src="{{ asset('assets/user/banner/banner1.png') }}" alt="">
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
 
     <div class="bg-cover bg-[#f20c1412]">
         <section class="TentangKami max-w-screen-xl mx-auto py-20 px-3 font-sans">
@@ -99,9 +115,7 @@
             </div>
 
             <div class="image p-3">
-                <img class="w-[540px]"
-                    src="https://softivuspro.com/wp/bankio/wp-content/uploads/2023/12/feature-item-1-1-4.png"
-                    alt="">
+                <img class="w-[540px]" src="{{ asset('assets/user/banner/simpanan1.png') }}" alt="">
             </div>
         </div>
 
@@ -166,7 +180,8 @@
                     yang menawarkan suku bunga kompetitif dan kemudahan akses. Bank Edanan menyediakan berbagai jenis
                     tabungan yang dirancang untuk memenuhi kebutuhan finansial Anda, dari tabungan harian hingga
                     tabungan jangka panjang.</p>
-                <ul class=" space-y-3.5 text-black font-sans list-inside dark:text-gray-400 text-base mb-9 font-medium">
+                <ul
+                    class=" space-y-3.5 text-black font-sans list-inside dark:text-gray-400 text-base mb-9 font-medium">
                     <li class="flex items-center">
                         <svg class="w-5 h-w-5 me-2 text-red-400 dark:text-green-400 flex-shrink-0" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -427,6 +442,22 @@
                 delay: 2000,
                 disableOnInteraction: false,
             },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+
+    <script>
+        var swiper = new Swiper(".mySwiperheader", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
