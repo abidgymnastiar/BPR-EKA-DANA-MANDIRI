@@ -280,7 +280,7 @@
 
     </section>
 
-    <section class="TentangKami max-w-screen-xl mx-auto py-10 px-3 font-sans">
+    <section class="Kegiatan max-w-screen-xl mx-auto py-10 px-3 font-sans">
         <div class=" text-center">
             <h3 class="text-lg font-medium font-sans text-red-700 mb-3">Kegiatan di Bank Edanan</h3>
             <h1 class="text-center font-bold text-4xl sm:text-5xl leading-tight text-red-800">Kolaborasi dan
@@ -296,7 +296,7 @@
                 bersama menuju masa depan yang lebih cerah.
             </p>
         </div>
-        <div class="grid grid-cols-4 mt-14 gap-8">
+        <div class="grid grid-cols-4 mt-10 gap-8">
             <a href="#">
                 <div class="group relative dark:bg-ungu_muda rounded-2xl">
 
@@ -313,76 +313,7 @@
                             <p class="item-desc text-gray-500 text-xs">Desssss</p>
 
                             <div
-                                class="item price text-purple-400 group-hover:text-indigo-700  group-dark:hover:text-purple-700 text-sm font-medium my-3">
-                                Selengkapnya
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="group relative dark:bg-ungu_muda rounded-2xl">
-
-                    <div class="items w-full h-full m-auto rounded-2xl shadow-md  ">
-                        <div class="item-img pb-5">
-                            <img class=" rounded-t-lg h-[200px] w-full object-cover"
-                                src="{{ asset('assets/user/banner/banner1.png') }}" alt="">
-                        </div>
-                        <div class="item-info p-5">
-                            <div class="item-rating flex justify-between items-center mt-3">
-                                <p class="text-xl font-medium dark:text-white truncate">Penyuluhan
-                                </p>
-                            </div>
-                            <p class="item-desc text-gray-500 text-xs">Desssss</p>
-
-                            <div
-                                class="item price text-purple-400 group-hover:text-indigo-700  group-dark:hover:text-purple-700 text-sm font-medium my-3">
-                                Selengkapnya
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="group relative dark:bg-ungu_muda rounded-2xl">
-
-                    <div class="items w-full h-full m-auto rounded-2xl shadow-md  ">
-                        <div class="item-img pb-5">
-                            <img class=" rounded-t-lg h-[200px] w-full object-cover"
-                                src="{{ asset('assets/user/banner/banner1.png') }}" alt="">
-                        </div>
-                        <div class="item-info p-5">
-                            <div class="item-rating flex justify-between items-center mt-3">
-                                <p class="text-xl font-medium dark:text-white truncate">Penyuluhan
-                                </p>
-                            </div>
-                            <p class="item-desc text-gray-500 text-xs">Desssss</p>
-
-                            <div
-                                class="item price text-purple-400 group-hover:text-indigo-700  group-dark:hover:text-purple-700 text-sm font-medium my-3">
-                                Selengkapnya
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="group relative dark:bg-ungu_muda rounded-2xl">
-
-                    <div class="items w-full h-full m-auto rounded-2xl shadow-md  ">
-                        <div class="item-img pb-5">
-                            <img class=" rounded-t-lg h-[200px] w-full object-cover"
-                                src="{{ asset('assets/user/banner/banner1.png') }}" alt="">
-                        </div>
-                        <div class="item-info p-5">
-                            <div class="item-rating flex justify-between items-center mt-3">
-                                <p class="text-xl font-medium dark:text-white truncate">Penyuluhan
-                                </p>
-                            </div>
-                            <p class="item-desc text-gray-500 text-xs">Desssss</p>
-
-                            <div
-                                class="item price text-purple-400 group-hover:text-indigo-700  group-dark:hover:text-purple-700 text-sm font-medium my-3">
+                                class="item price text-red-600 group-hover:text-red-800  group-dark:hover:text-purple-700 text-sm font-medium my-3">
                                 Selengkapnya
                             </div>
                         </div>

@@ -1,5 +1,5 @@
-<div>
-    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+<div class="sticky top-0 z-10">
+    <nav class="bg-white border-gray-200 dark:bg-gray-900  ">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <img src="{{ asset('assets/logo/logobank.png') }}" class="h-10" alt="">
             <button data-collapse-toggle="navbar-default" type="button"
@@ -16,22 +16,26 @@
                 <ul
                     class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                     <li>
-                        <a href="#"
+                        <a href="{{ route('home') }}"
                             class="block py-2 px-3 text-red-800 hover:text-red-950/25 bg-blue-700 rounded md:bg-transparent"
                             aria-current="page">Home</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100">Tentang
+                        <a href="{{ route('tentangKami') }}"
+                            class="block py-2 px-3 text-gray-600 hover:text-red-950/25 bg-blue-700 rounded md:bg-transparent">Tentang
                             Kami</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100">Simpan</a>
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-600 hover:text-red-950/25 bg-blue-700 rounded md:bg-transparent">Simpan</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100">Pinjam</a>
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-600 hover:text-red-950/25 bg-blue-700 rounded md:bg-transparent">Pinjam</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100">Info</a>
+                        <a href="{{ route('info') }}"
+                            class="block py-2 px-3 text-gray-600 hover:text-red-950/25 bg-blue-700 rounded md:bg-transparent">Info</a>
                     </li>
                 </ul>
             </div>
