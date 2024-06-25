@@ -28,13 +28,15 @@
                     <div class="inline-block min-w-full align-middle">
                         <div class="overflow-hidden shadow-lg">
                             <form class="p-10" method="POST" enctype="multipart/form-data"
-                                action="{{ route('admin.kegiatan.store') }}">
+                                action="{{ route('admin.kegiatan.update', $kegiatan->id) }}">
+                                @method('PUT')
                                 @csrf
                                 <div class="mb-6">
                                     <label for="nama_kegiatan"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nama
                                         Kegiatan</label>
-                                    <input type="text" id="nama_kegiatan" name="nama_kegiatan"
+                                    <input type="text" value="{{ $kegiatan->nama_kegiatan }}" id="nama_kegiatan"
+                                        name="nama_kegiatan"
                                         class="bg-transparent border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-2 focus:ring-fuchsia-50 focus:border-fuchsia-300 block w-full p-2.5 dark:text-white"
                                         placeholder="Nama Kegiatan" required>
                                 </div>
@@ -42,10 +44,10 @@
                                 <div class="mb-6">
                                     <label for="gambar"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Gambar
-                                        Kegiatan</label>
+                                        Kegiatan (Kosongkan jika tidak ingin merubah)</label>
                                     <input type="file" id="gambar" name="gambar"
                                         class="bg-transparent border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-2 focus:ring-fuchsia-50 focus:border-fuchsia-300 block w-full dark:text-white"
-                                        placeholder="Nama Kegiatan" required>
+                                        placeholder="Nama Kegiatan">
                                     <img id="imagePreview" class="hidden h-32 mt-2" src="#" alt="your image" />
                                 </div>
 
@@ -64,7 +66,9 @@
                                     @foreach ($kategori as $item)
                                         <div class="flex mb-4">
                                             <div class="flex items-center h-5">
-                                                <input name="kategori[]" id="keterangan-{{ $item->id }}"
+                                                <input
+                                                    {{ in_array($item->id, $kegiatan->kategori->pluck('kegiatan_kategori_id')->toArray()) ? 'checked' : '' }}
+                                                    name="kategori[]" id="keterangan-{{ $item->id }}"
                                                     aria-describedby="keterangan-{{ $item->id }}"
                                                     value="{{ $item->id }}" type="checkbox"
                                                     class="w-5 h-5 bg-transparent rounded border border-gray-300 focus:ring-0 checked:bg-dark-900">
@@ -87,7 +91,7 @@
                                     <div class="mb-6">
                                         <label for="tgl_mulai"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Mulai</label>
-                                        <input type="datetime-local" value="{{ now() }}" id="tgl_mulai"
+                                        <input type="datetime-local" value="{{ $kegiatan->tgl_mulai }}" id="tgl_mulai"
                                             name="tgl_mulai"
                                             class="bg-transparent border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-2 focus:ring-fuchsia-50 focus:border-fuchsia-300 block w-full p-2.5 dark:text-white"
                                             placeholder="Nama Kegiatan" required>
@@ -96,8 +100,8 @@
                                     <div class="mb-6">
                                         <label for="tgl_selesai"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Selesai</label>
-                                        <input type="datetime-local" value="{{ now() }}" id="tgl_selesai"
-                                            name="tgl_selesai"
+                                        <input type="datetime-local" value="{{ $kegiatan->tgl_selesai }}"
+                                            id="tgl_selesai" name="tgl_selesai"
                                             class="bg-transparent border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-2 focus:ring-fuchsia-50 focus:border-fuchsia-300 block w-full p-2.5 dark:text-white"
                                             placeholder="Nama Kegiatan" required>
                                     </div>
@@ -105,7 +109,7 @@
 
                                 <label for="summernote"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Isi</label>
-                                <textarea name="isi" id="summernote">{!! old('isi') ?? '#Isi Disini' !!}</textarea>
+                                <textarea name="isi" id="summernote">{!! old('isi') ?? $kegiatan->isi !!}</textarea>
 
                                 <button type="submit"
                                     class="text-white bg-gradient-to-br from-pink-500 to-voilet-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 text-center inline-flex items-center shadow-md shadow-gray-300 dark:shadow-gray-900 hover:scale-[1.02] transition-transform">

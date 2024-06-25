@@ -31,12 +31,12 @@ class KegiatanController extends Controller
      */
     public function index()
     {
-        return view('admin.kegiatan.index');
+        $kegiatan = KegiatanModel::paginate(10);
+        return view('admin.kegiatan.index',compact('kegiatan'));
     }
 
     public function store(StoreKegiatan $request)
     {
-        dd($request->toArray());
         try {
             DB::beginTransaction();
             $kegiatan = new KegiatanModel();
@@ -93,6 +93,13 @@ class KegiatanController extends Controller
     {
         $kegiatan = KegiatanModel::findOrFail($id);
         return true;
+    }
+
+    public function edit($id)
+    {
+        $kegiatan = KegiatanModel::findOrFail($id);
+        $kategori = KategoriKegiatanModel::all();
+        return view('admin.kegiatan.edit', compact('kegiatan', 'kategori'));
     }
 
     public function delete($id)
