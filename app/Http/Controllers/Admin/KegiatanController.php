@@ -9,14 +9,34 @@ use App\Models\KegiatanModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Class KegiatanController
+ * 
+ * @category Controller
+ * @package  App\Http\Controllers\Admin
+ * @author   Edoaurahman <edoaurahman@gmail.com>
+ * @property KegiatanModel $kegiatan
+ * @property KategoriKegiatanModel $kategori
+ * @property Request $request
+ * @property StoreKegiatan $storeKegiatan
+ * @license  MIT License
+ * @link     https://example.com
+ */
 class KegiatanController extends Controller
 {
+    /**
+     * Display the index page for the KegiatanController.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
-        return true;
+        return view('admin.kegiatan.index');
     }
+
     public function store(StoreKegiatan $request)
     {
+        dd($request->toArray());
         try {
             DB::beginTransaction();
             $kegiatan = new KegiatanModel();
@@ -44,6 +64,12 @@ class KegiatanController extends Controller
         }
     }
 
+    public function create()
+    {
+        $kategori = KategoriKegiatanModel::all();
+        return view('admin.kegiatan.create', compact('kategori'));
+    }
+
     public function store_kategori(Request $request)
     {
         $request->validate([
@@ -54,14 +80,12 @@ class KegiatanController extends Controller
             $kategori = new KategoriKegiatanModel();
             $kategori->nama_kategori = $request->nama_kategori;
             $kategori->keterangan = $request->keterangan;
-            $kategori->color_label = $request->color_label;
-            $kategori->icon = $request->icon;
             $kategori->save();
             DB::commit();
-            return redirect()->route('admin.kegiatan')->with('success', 'Kategori kegiatan berhasil ditambahkan');
+            return redirect()->back()->with('success', 'Kategori kegiatan berhasil ditambahkan');
         } catch (\Throwable $e) {
             DB::rollBack();
-            return redirect()->route('admin.kegiatan')->with('error', 'Kategori kegiatan gagal ditambahkan');
+            return redirect()->back()->withErrors('Kategori kegiatan gagal ditambahkan');
         }
     }
 
