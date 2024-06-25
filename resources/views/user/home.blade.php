@@ -334,7 +334,7 @@
                     <img class="h-[70px] mx-auto" src="{{ asset('assets/logo/LogoBPR.png') }}" alt="">
                 </div>
                 <div class="swiper-slide text-center ">
-                    <img class="h-[70px] mx-auto" src="{{ asset('assets/logo/logoLPS.png') }}" alt="">
+                    <img class="h-[70px] mx-auto" src="{{ asset('assets/logo/LogoLPS.png') }}" alt="">
                 </div>
                 <div class="swiper-slide text-center ">
                     <img class="h-[70px]  mx-auto" src="{{ asset('assets/logo/OJKLogo.png') }}" alt="">
@@ -343,7 +343,7 @@
                     <img class="h-[70px] mx-auto" src="{{ asset('assets/logo/LogoBPR.png') }}" alt="">
                 </div>
                 <div class="swiper-slide text-center ">
-                    <img class="h-[70px] mx-auto" src="{{ asset('assets/logo/logoLPS.png') }}" alt="">
+                    <img class="h-[70px] mx-auto" src="{{ asset('assets/logo/LogoLPS.png') }}" alt="">
                 </div>
                 <div class="swiper-slide text-center ">
                     <img class="h-[70px]  mx-auto" src="{{ asset('assets/logo/OJKLogo.png') }}" alt="">
@@ -352,7 +352,7 @@
                     <img class="h-[70px] mx-auto" src="{{ asset('assets/logo/LogoBPR.png') }}" alt="">
                 </div>
                 <div class="swiper-slide text-center ">
-                    <img class="h-[70px] mx-auto" src="{{ asset('assets/logo/logoLPS.png') }}" alt="">
+                    <img class="h-[70px] mx-auto" src="{{ asset('assets/logo/LogoLPS.png') }}" alt="">
                 </div>
             </div>
         </div>
