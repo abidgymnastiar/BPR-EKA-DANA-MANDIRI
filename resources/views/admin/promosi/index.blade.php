@@ -1,9 +1,9 @@
 <x-layout.admin>
     <div id="main-content" class="h-full overflow-y-auto bg-gray-50 relative lg:ml-64 pt-16">
         <div class="flex px-4 pt-2">
-            <a href="{{ route('admin.kegiatan.create') }}"
+            <a href="{{ route('admin.promosi.create') }}"
                 class="text-white bg-gradient-to-br from-pink-500 to-voilet-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 text-center inline-flex items-center shadow-md shadow-gray-300 hover:scale-[1.02] transition-transform">
-                Tambah Kegiatan
+                Tambah Promosi
                 <i class="fa fa-plus ml-1 font-bold" aria-hidden="true"></i>
             </a>
         </div>
@@ -17,51 +17,48 @@
                                     <tr>
                                         <th scope="col"
                                             class="p-4 text-xs font-medium text-left text-gray-500 uppercase lg:p-5">
-                                            Name
+                                            Nama
+                                        </th>
+                                        <th scope="col"
+                                            class="p-4 text-xs font-medium text-left text-gray-500 uppercase lg:p-5">
+                                            Gambar
+                                        </th>
+                                        <th scope="col"
+                                            class="p-4 text-xs font-medium text-left text-gray-500 uppercase lg:p-5">
+                                            Deskripsi
                                         </th>
                                         <th scope="col"
                                             class="p-4 text-xs font-medium text-left text-gray-500 uppercase lg:p-5">
                                             Dibuat
-                                        </th>
-                                        <th scope="col"
-                                            class="p-4 text-xs font-medium text-left text-gray-500 uppercase lg:p-5">
-                                            Mulai
-                                        </th>
-                                        <th scope="col"
-                                            class="p-4 text-xs font-medium text-left text-gray-500 uppercase lg:p-5">
-                                            Selesai
                                         </th>
                                         <th scope="col" class="p-4 lg:p-5 ">
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
-                                    @foreach ($kegiatan as $item)
+                                    @foreach ($promosi as $item)
                                         <tr class="hover:bg-gray-100">
                                             <td
                                                 class="flex items-center p-4 mr-12 space-x-6 whitespace-nowrap lg:p-5 lg:mr-0">
-                                                <img class="w-8 h-8 rounded" src="{{ $item->getGambar() }}"
-                                                    alt="Neil Sims avatar">
                                                 <div class="text-sm font-normal text-gray-500">
                                                     <div class="text-base font-semibold text-gray-900">
-                                                        {{ $item->nama_kegiatan }}
-                                                    </div>
+                                                        {{ $item->nama }}</div>
                                                     <div class="text-sm font-normal text-gray-500">
-                                                        {{ $item->getKategori() }}
                                                     </div>
-                                                </div>
                                             </td>
                                             <td
                                                 class="p-4 text-base font-medium text-gray-900 whitespace-nowrap lg:p-5">
+                                                <img class="h-12 rounded modal-image"
+                                                    src="{{ $item->getGambar() }}" alt="gambar promosi">
+                                            </td>
+                                            <td
+                                                class="p-4 text-base font-medium text-gray-900 whitespace-nowrap lg:p-5">
+                                                {{ $item->deskripsi }}</td>
+                                            <td
+                                                class="p-4 text-base font-medium text-gray-900 whitespace-nowrap lg:p-5">
                                                 {{ $item->created_at->format('d F Y') }}</td>
-                                            <td
-                                                class="p-4 text-base font-medium text-gray-900 whitespace-nowrap lg:p-5">
-                                                {{ $item->tgl_mulai }}</td>
-                                            <td
-                                                class="p-4 text-base font-medium text-gray-900 whitespace-nowrap lg:p-5">
-                                                {{ $item->tgl_selesai }}</td>
                                             <td class="p-4 space-x-2 whitespace-nowrap lg:p-5">
-                                                <a href="{{ route('admin.kegiatan.edit', $item->id) }}"
+                                                <a href="{{ route('admin.promosi.edit', $item->id) }}"
                                                     class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-700 bg-gray-200 rounded-lg hover:bg-gray-300 hover:text-gray-900 hover:scale-[1.02] transition-all">
                                                     <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                                         xmlns="http://www.w3.org/2000/svg">
@@ -75,7 +72,7 @@
                                                     Edit
                                                 </a>
                                                 <button type="button" data-modal-toggle="delete-user-modal"
-                                                    onclick="deleteKegiatan({{ $item->id }})"
+                                                    onclick="deletePromo({{ $item->id }})"
                                                     class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-gradient-to-br from-red-400 to-red-600 rounded-lg shadow-md shadow-gray-300 hover:scale-[1.02] transition-transform">
                                                     <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                                                         xmlns="http://www.w3.org/2000/svg">
@@ -94,10 +91,10 @@
                     </div>
                 </div>
             </div>
-            {{ $kegiatan->links() }}
+            {{ $promosi->links() }}
 
             <!-- Delete User Modal -->
-            <form action="" method="post" id="form-delete-kegiatan">
+            <form action="" method="post" id="form-delete-promosi">
                 @csrf
                 @method('delete')
                 <div class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center md:inset-0 h-modal sm:h-full"
@@ -144,8 +141,9 @@
         </main>
     </div>
     <script>
-        function deleteKegiatan(id) {
-            document.getElementById('form-delete-kegiatan').action = '/admin/kegiatan/delete/' + id;
+        function deletePromo(id) {
+            document.getElementById('form-delete-promosi').action = '/admin/promosi/delete/' + id;
         }
     </script>
 </x-layout.admin>
+<x-image-modal />
