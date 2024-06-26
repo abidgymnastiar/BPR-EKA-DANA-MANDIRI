@@ -66,4 +66,10 @@ class KegiatanModel extends Model
         })->toArray();
         return implode(', ', $kategori);
     }
+
+    public function getCuplikanIsi(): string
+    {
+        // ambil 100 karakter pertama dari isi dan hilangkan html
+        return strip_tags(substr($this->isi, 0, 100));
+    }
 }

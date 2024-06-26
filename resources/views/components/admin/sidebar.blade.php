@@ -58,6 +58,17 @@
                             <span class="ml-3 text-dark-500 text-sm font-light" sidebar-toggle-item>Kegiatan</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('admin.promosi') }}"
+                            class="{{ isActiveRoute('admin.promosi', true) ? '!hover:bg-white shadow-lg shadow-gray-200 bg-white' : '' }} flex items-center py-2.5 px-4 text-base font-normal text-dark-500 rounded-lg hover:bg-gray-200  group transition-all duration-200"
+                            sidebar-toggle-collapse>
+                            <div
+                                class="{{ isActiveRoute('admin.promosi', true) ? 'bg-fuchsia-500 !text-white' : '' }} bg-white shadow-lg shadow-gray-300  text-dark-700 p-2.5 mr-1 rounded-lg text-center grid place-items-center">
+                                <i class="fa-solid fa-newspaper"></i>
+                            </div>
+                            <span class="ml-3 text-dark-500 text-sm font-light" sidebar-toggle-item>Promosi</span>
+                        </a>
+                    </li>
                 </ul>
                 <hr class="border-0 h-px bg-gradient-to-r from-gray-100 via-gray-300 to-gray-100">
                 <div class="pt-2">
