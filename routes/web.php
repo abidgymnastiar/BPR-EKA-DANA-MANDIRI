@@ -19,6 +19,10 @@ Route::get('/home', function () {
     return view('user.home');
 })->name('home');
 
+Route::get('/info', function () {
+    return view('user.info');
+})->name('info');
+
 Route::post('/peminjaman', [PeminjamanController::class, 'create'])->name('peminjaman.create');
 Route::get('/peminjaman/show/{id}', [PeminjamanController::class, 'show'])->name('peminjaman.show');
 Route::delete('/peminjaman/delete/{id}', [PeminjamanController::class, 'delete'])->name('peminjaman.delete');
