@@ -42,10 +42,12 @@ class AuthController extends Controller
 
     public function setup()
     {
+        abort_if(User::count() > 0, 403, 'Forbidden');
         return view('components.view.setup');
     }
     public function setup_process(SetupRequest $request)
     {
+        abort_if(User::count() > 0, 403, 'Forbidden');
         try {
             DB::beginTransaction();
             User::create($request->all());

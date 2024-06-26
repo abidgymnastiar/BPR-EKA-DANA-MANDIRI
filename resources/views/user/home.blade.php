@@ -219,65 +219,13 @@
 
 
     <section class="promosi py-10">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="grid gap-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
+            @foreach ($promosi as $item)
                 <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt="">
+                    <img class="h-auto max-w-full rounded-lg modal-image" src="{{ $item->getGambar() }}" alt="">
                 </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg" alt="">
-                </div>
-            </div>
-            <div class="grid gap-4">
-                <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg" alt="">
-                </div>
-            </div>
-            <div class="grid gap-4">
-                <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg" alt="">
-                </div>
-            </div>
-            <div class="grid gap-4">
-                <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg" alt="">
-                </div>
-            </div>
+            @endforeach
         </div>
-
     </section>
 
     <section class="Kegiatan max-w-screen-xl mx-auto py-10 px-3 font-sans">
@@ -297,29 +245,29 @@
             </p>
         </div>
         <div class="grid grid-cols-4 mt-10 gap-8">
-            <a href="#">
-                <div class="group relative dark:bg-ungu_muda rounded-2xl">
-
-                    <div class="items w-full h-full m-auto rounded-2xl shadow-md  ">
-                        <div class="item-img pb-5">
-                            <img class=" rounded-t-lg h-[200px] w-full object-cover"
-                                src="{{ asset('assets/user/banner/banner1.png') }}" alt="">
-                        </div>
-                        <div class="item-info p-5">
-                            <div class="item-rating flex justify-between items-center mt-3">
-                                <p class="text-xl font-medium dark:text-white truncate">Penyuluhan
-                                </p>
+            @foreach ($kegiatan as $item)
+                <a href="#">
+                    <div class="group relative dark:bg-ungu_muda rounded-2xl">
+                        <div class="items w-full h-full m-auto rounded-2xl shadow-md  ">
+                            <div class="item-img pb-5">
+                                <img class=" rounded-t-lg h-[200px] w-full object-cover"
+                                    src="{{ asset('assets/user/banner/banner1.png') }}" alt="">
                             </div>
-                            <p class="item-desc text-gray-500 text-xs">Desssss</p>
-
-                            <div
-                                class="item price text-red-600 group-hover:text-red-800  group-dark:hover:text-purple-700 text-sm font-medium my-3">
-                                Selengkapnya
+                            <div class="item-info p-5">
+                                <div class="item-rating flex justify-between items-center mt-3">
+                                    <p class="text-xl font-medium dark:text-white truncate">{{ $item->nama_kegiatan }}
+                                    </p>
+                                </div>
+                                <p class="item-desc text-gray-500 text-xs truncate">{{ $item->getCuplikanIsi() }}</p>
+                                <div
+                                    class="item price text-red-600 group-hover:text-red-800  group-dark:hover:text-purple-700 text-sm font-medium my-3">
+                                    Selengkapnya
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            @endforeach
 
         </div>
     </section>
@@ -395,4 +343,5 @@
             },
         });
     </script>
+    <x-image-modal/>
 </x-layout.user>

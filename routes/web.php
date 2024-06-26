@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::
         namespace('Admin')->prefix('admin')->middleware('auth')->name('admin.')->group(base_path('routes/admin.php'));
+use App\Http\Controllers\User\HomeController;
 
 Route::get('/', function () {
     return redirect()->route('home');
@@ -24,9 +25,7 @@ Route::delete('/peminjaman/delete/{id}', [PeminjamanController::class, 'delete']
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard')->middleware('auth');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
-Route::get('/home', function () {
-    return view('user.home');
-})->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/tentangKami', function () {
     return view('user.tentangKami');
