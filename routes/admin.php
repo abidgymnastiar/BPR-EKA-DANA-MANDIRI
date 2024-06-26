@@ -13,7 +13,9 @@ Route::prefix('nasabah')->group(function () {
 // Kegiatan
 Route::prefix('kegiatan')->group(function () {
     Route::get('/', [KegiatanController::class, 'index'])->name('kegiatan');
+    Route::get('/create', [KegiatanController::class, 'create'])->name('kegiatan.create');
     Route::post('/store', [KegiatanController::class, 'store'])->name('kegiatan.store');
+    Route::get('/edit/{id}', [KegiatanController::class, 'edit'])->name('kegiatan.edit');
     Route::put('/{id}', [KegiatanController::class, 'update'])->name('kegiatan.update');
     Route::delete('/delete/{id}', [KegiatanController::class, 'delete'])->name('kegiatan.delete');
     Route::post('/kategori/store', [KegiatanController::class, 'store_kategori'])->name('kegiatan.kategori.store');

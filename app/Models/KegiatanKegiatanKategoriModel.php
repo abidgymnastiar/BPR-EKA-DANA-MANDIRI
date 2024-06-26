@@ -23,6 +23,6 @@ class KegiatanKegiatanKategoriModel extends Model
 
     public function kategori()
     {
-        return $this->belongsTo(KegiatanKegiatanKategoriModel::class, 'kegiatan_kategori_id');
+        return $this->belongsTo(KategoriKegiatanModel::class, 'kegiatan_kategori_id');
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Requests\SetupRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
@@ -24,11 +25,19 @@ class AuthController extends Controller
     {
         $credentials = $request->only('email', 'password');
         $remember = $request->has('remember');
-        if (auth()->attempt($credentials, $remember)) {
-            // intended redirect to previous url
+        if (Auth::attempt($credentials, $remember)) {
+            $request->session()->regenerate();
             return redirect()->intended('home');
         }
-        return back()->withErrors('Email atau password salah');
+        return back()->withErrors('Email atau password salah')->onlyInput('email');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('home');
     }
 
     public function setup()

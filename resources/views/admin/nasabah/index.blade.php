@@ -1,5 +1,5 @@
 <x-layout.admin>
-    <div id="main-content" class="h-full overflow-y-auto bg-gray-50 relative lg:ml-64">
+    <div id="main-content" class="h-full overflow-y-auto bg-gray-50 relative lg:ml-64 pt-16">
         <main>
             <div class="flex flex-col my-6 mx-4 rounded-2xl shadow-xl shadow-gray-200">
                 <div class=" rounded-2xl">

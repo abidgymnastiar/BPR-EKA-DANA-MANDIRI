@@ -22,9 +22,7 @@
 </head>
 
 <body class="bg-[#f1f4f5]">
-    <div class="">
-        <x-user.nav />
-    </div>
+    <x-user.nav />
     {{ $slot }}
     <x-user.footer />
 </body>

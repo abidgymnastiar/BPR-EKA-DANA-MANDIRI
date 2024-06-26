@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
+ * @property string $id
  * @property string $nama_kategori
  * @property string $keterangan
  * @property string $color_label

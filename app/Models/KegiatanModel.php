@@ -58,4 +58,12 @@ class KegiatanModel extends Model
             return asset('storage/kegiatan/' . $this->gambar);
         }
     }
+
+    public function getKategori(): string
+    {
+        $kategori = $this->kategori->map(function ($item) {
+            return $item->kategori->nama_kategori;
+        })->toArray();
+        return implode(', ', $kategori);
+    }
 }

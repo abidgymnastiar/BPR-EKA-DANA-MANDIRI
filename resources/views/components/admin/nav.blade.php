@@ -18,8 +18,9 @@
                     </svg>
                 </button>
                 <a href="{{ route('admin.dashboard') }}" class="text-md font-semibold flex items-center lg:mr-1.5">
-                    <img src="{{ asset('assets/admin/images/logo.svg') }}" class="mr-2 h-8" alt="Creative Tim Logo">
-                    <span class="hidden md:inline-block self-center text-xl font-bold whitespace-nowrap">Admin</span>
+                    <i class="fa-solid fa-house-crack h-10 mx-5"></i>
+
+                    <span class="hidden md:inline-block self-center text-xl font-bold whitespace-nowrap">{{ config('app.name') }}</span>
                 </a>
 
             </div>
@@ -34,27 +35,25 @@
                 <div id="userDropdown"
                     class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                     <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                        <div>Bonnie Green</div>
-                        <div class="font-medium truncate">name@flowbite.com</div>
+                        <div>{{ auth()->user()->name }}</div>
+                        <div class="font-medium truncate">{{ auth()->user()->email }}</div>
                     </div>
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="avatarButton">
                         <li>
-                            <a href="#"
-                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                            <a href="{{ route('home') }}"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Home</a>
                         </li>
                     </ul>
                     <div class="py-1">
-                        <a href="#"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                            out</a>
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <a href="#"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                <button type="submit">
+                                    Log out
+                                </button>
+                            </a>
+                        </form>
                     </div>
                 </div>
             </div>

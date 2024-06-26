@@ -14,8 +14,6 @@ return new class extends Migration {
             $table->id();
             $table->string('nama_kategori');
             $table->string('keterangan')->nullable();
-            $table->string('color_label')->nullable();
-            $table->string('icon')->nullable();
             $table->timestamps();
         });
     }
