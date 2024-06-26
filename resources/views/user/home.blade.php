@@ -114,8 +114,8 @@
                     Sekarang</button>
             </div>
 
-            <div class="image p-3">
-                <img class="w-[540px]" src="{{ asset('assets/user/banner/pinjaman1.png') }}" alt="">
+            <div class="image pl-3">
+                <img class="w-[540px]" src="{{ asset('assets/user/cover/home1.webp') }}" alt="">
             </div>
         </div>
 
@@ -124,7 +124,7 @@
     <section class="Deposito max-w-screen-xl mx-auto mt-5 py-10">
         <div class="grid grid-cols-2 items-center gap-x-5">
             <div class="image p-3">
-                <img class="w-[540px]" src="{{ asset('assets/user/banner/deposito1.png') }}" alt="">
+                <img class="w-[540px]" src="{{ asset('assets/user/cover/home4.webp') }}" alt="">
             </div>
             <div class="p-3">
                 <h3 class="text-lg font-medium font-sans text-red-700">Deposito Bank Edanan</h3>
@@ -211,7 +211,7 @@
             </div>
 
             <div class="image p-3">
-                <img class="w-[540px]" src="{{ asset('assets/user/banner/simpanan1.png') }}" alt="">
+                <img class="w-[540px]" src="{{ asset('assets/user/cover/home2.webp') }}" alt="">
             </div>
         </div>
 
