@@ -1,15 +1,47 @@
 <?php
 use App\Http\Controllers\Admin\KegiatanController;
-use App\Http\Controllers\Admin\NasabahController;
+use App\Http\Controllers\Admin\PeminjamanController;
 use App\Http\Controllers\Admin\PromosiController;
+use App\Http\Controllers\Admin\SimpananController;
 
 Route::get('/', function () {
     return redirect()->route('admin.dashboard');
 });
 
-// Nasabah
-Route::prefix('nasabah')->group(function () {
-    Route::get('/', [NasabahController::class, 'index'])->name('nasabah');
+// Peminjam
+Route::prefix('peminjaman')->group(function () {
+    Route::get('/', [PeminjamanController::class, 'index'])->name('peminjam');
+    Route::prefix('kategori')->group(function(){
+        Route::get('/',[PeminjamanController::class,'index_kategori'])->name('peminjam.kategori');
+        Route::get('/create',[PeminjamanController::class,'create_kategori'])->name('peminjam.kategori.create');
+        Route::post('/peminjaman',[PeminjamanController::class,'store_kategori_jumlah_peminjam'])->name('peminjam.kategori.store');
+        Route::get('/edit/{id}',[PeminjamanController::class,'edit_kategori'])->name('peminjam.kategori.edit');
+        Route::put('/{id}',[PeminjamanController::class,'update_kategori'])->name('peminjam.kategori.update');
+        Route::delete('/delete/{id}',[PeminjamanController::class,'delete_kategori'])->name('peminjam.kategori.delete');
+    });
+
+    Route::prefix('jaminan')->group(function(){
+        Route::get('/',[PeminjamanController::class,'index_jaminan'])->name('peminjam.jaminan');
+        Route::get('/create',[PeminjamanController::class,'create_jaminan'])->name('peminjam.jaminan.create');
+        Route::post('/jaminan',[PeminjamanController::class,'store_jaminan'])->name('peminjam.jaminan.store');
+        Route::get('/edit/{id}',[PeminjamanController::class,'edit_jaminan'])->name('peminjam.jaminan.edit');
+        Route::put('/{id}',[PeminjamanController::class,'update_jaminan'])->name('peminjam.jaminan.update');
+        Route::delete('/delete/{id}',[PeminjamanController::class,'delete_jaminan'])->name('peminjam.jaminan.delete');
+    });
+    Route::put('/update-status',[PeminjamanController::class,'update_status_peminjaman'])->name('peminjam.update-status');
+});
+// Simpanan
+Route::prefix('simpanan')->group(function () {
+    Route::get('/', [SimpananController::class, 'index'])->name('simpanan');
+
+    Route::prefix('kategori')->group(function(){
+        Route::get('/',[SimpananController::class,'index_kategori'])->name('simpanan.kategori');
+        Route::get('/create',[SimpananController::class,'create_kategori'])->name('simpanan.kategori.create');
+        Route::post('/simpanan',[SimpananController::class,'store_kategori_jumlah_simpanan'])->name('simpanan.kategori.store');
+        Route::get('/edit/{id}',[SimpananController::class,'edit_kategori'])->name('simpanan.kategori.edit');
+        Route::put('/{id}',[SimpananController::class,'update_kategori'])->name('simpanan.kategori.update');
+        Route::delete('/delete/{id}',[SimpananController::class,'delete_kategori'])->name('simpanan.kategori.delete');
+    });
 });
 // Kegiatan
 Route::prefix('kegiatan')->group(function () {

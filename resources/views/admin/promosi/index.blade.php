@@ -1,12 +1,14 @@
 <x-layout.admin>
     <div id="main-content" class="h-full overflow-y-auto bg-gray-50 relative lg:ml-64 pt-16">
-        <div class="flex px-4 pt-2">
+        <div class="flex px-4 pt-2 justify-between">
             <a href="{{ route('admin.promosi.create') }}"
                 class="text-white bg-gradient-to-br from-pink-500 to-voilet-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 text-center inline-flex items-center shadow-md shadow-gray-300 hover:scale-[1.02] transition-transform">
                 Tambah Promosi
                 <i class="fa fa-plus ml-1 font-bold" aria-hidden="true"></i>
             </a>
+            <x-admin.search-form action="{{ route('admin.promosi') }}"/>
         </div>
+        <x-admin.alert />
         <main>
             <div class="flex flex-col my-6 mx-4 rounded-2xl shadow-xl shadow-gray-200">
                 <div class=" rounded-2xl">
@@ -29,7 +31,7 @@
                                         </th>
                                         <th scope="col"
                                             class="p-4 text-xs font-medium text-left text-gray-500 uppercase lg:p-5">
-                                            Dibuat
+                                            Created At
                                         </th>
                                         <th scope="col" class="p-4 lg:p-5 ">
                                         </th>
@@ -87,6 +89,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <x-admin.no-data :hasData="$promosi->count() != 0" />
                         </div>
                     </div>
                 </div>
