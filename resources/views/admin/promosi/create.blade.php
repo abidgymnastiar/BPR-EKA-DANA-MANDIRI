@@ -28,7 +28,7 @@
                                 <div class="mb-6">
                                     <label for="gambar"
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Gambar
-                                        Kegiatan</label>
+                                        Promosi</label>
                                     <input type="file" id="gambar" name="gambar"
                                         class="bg-transparent border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-2 focus:ring-fuchsia-50 focus:border-fuchsia-300 block w-full dark:text-white"
                                         placeholder="Nama Kegiatan" required>
