@@ -20,10 +20,11 @@ return new class extends Migration {
             $table->enum('pekerjaan', ['PNS', 'Pegawai Swasta', 'Pensiunan PNS', 'Pensiunan Biasa', 'TNI/Polri', 'Wiraswasta atau Pengusaha', 'Tidak Bekerja', 'Lainnya']);
             $table->unsignedBigInteger('id_jaminan');
             $table->enum('sertifikat_atas_nama', ['pemohon/pasangan', 'keluarga']);
-            $table->enum('jumlah_pinjaman', ['500 Juta - 1 Miliar', '1 Miliar - 2 Miliar']);
+            $table->enum('status', ['pending', 'process', 'done', 'rejected'])->default('pending');
             $table->timestamps();
 
             $table->foreign('id_jaminan')->references('id_jaminan')->on('tb_jenis_jaminan');
+            $table->foreignId('id_jumlah_peminjaman')->constrained('tb_list_jumlah_peminjaman');
         });
     }
 

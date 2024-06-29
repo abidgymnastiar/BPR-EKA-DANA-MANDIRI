@@ -31,8 +31,8 @@ class KegiatanController extends Controller
      */
     public function index()
     {
-        $kegiatan = KegiatanModel::paginate(10);
-        return view('admin.kegiatan.index',compact('kegiatan'));
+        $kegiatan = KegiatanModel::orderBy('updated_at', 'desc')->paginate(10);
+        return view('admin.kegiatan.index', compact('kegiatan'));
     }
 
     public function store(StoreKegiatan $request)

@@ -5,12 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class JenisJaminanModel extends Model
+class ListJumlahPeminjamanModel extends Model
 {
     use HasFactory;
-    protected $table = 'tb_jenis_jaminan';
-    protected $primaryKey = 'id_jaminan';
-    protected $fillable = ['nama_jaminan','author_id'];
+
+    protected $table = 'tb_list_jumlah_peminjaman';
+
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+        'jumlah_peminjaman',
+        'author_id',
+    ];
 
     public function author()
     {

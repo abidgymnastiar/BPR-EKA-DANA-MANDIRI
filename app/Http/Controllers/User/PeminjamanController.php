@@ -23,7 +23,7 @@ class PeminjamanController extends Controller
                 $peminjaman->pekerjaan = $validated['pekerjaan'];
                 $peminjaman->id_jaminan = $validated['id_jaminan'];
                 $peminjaman->sertifikat_atas_nama = $validated['sertifikat_atas_nama'];
-                $peminjaman->jumlah_pinjaman = $validated['jumlah_pinjaman'];
+                $peminjaman->id_jumlah_peminjaman = $validated['id_jumlah_peminjaman'];
                 $peminjaman->save();
             });
         } catch (\Exception $e) {
@@ -35,24 +35,6 @@ class PeminjamanController extends Controller
             'data' => $peminjaman,
             'message' => 'Peminjaman berhasil disimpan',
         ], 200);
-    }
-
-    public function show($id)
-    {
-        $peminjaman = PeminjamanModel::with('jenisJaminan')->find($id);
-        try {
-            if ($peminjaman) {
-                return response()->json([
-                    'data' => $peminjaman,
-                ], 200);
-            } else {
-                throw new \Exception('Data tidak ditemukan');
-            }
-        } catch (\Exception $e) {
-            return response()->json([
-                'message' => $e->getMessage(),
-            ], 404);
-        }
     }
 
     // delete method

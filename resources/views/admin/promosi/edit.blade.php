@@ -2,26 +2,7 @@
     <div id="main-content" class="h-full overflow-y-auto bg-gray-50 relative lg:ml-64 pt-16">
         <main>
             <div class="flex flex-col my-6 mx-4 rounded-2xl shadow-xl shadow-gray-200">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>
-                                    <div class="p-4 mb-4 text-sm text-white bg-gradient-to-br from-pink-500 to-voilet-500 rounded-lg"
-                                        role="alert">
-                                        <span class="font-medium">{{ $error }}</span>
-                                    </div>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                @session('success')
-                    <div class="p-4 mb-4 text-sm text-white bg-gradient-to-br bg-blue-700 rounded-lg" role="alert">
-                        <span class="font-medium">{{ session('success') }}</span>
-                    </div>
-                @endsession
-
+                <x-admin.alert />
                 <div class="rounded-2xl">
                     <div class="inline-block min-w-full align-middle">
                         <div class="overflow-hidden shadow-lg">

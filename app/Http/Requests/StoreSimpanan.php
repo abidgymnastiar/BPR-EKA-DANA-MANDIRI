@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePeminjaman extends FormRequest
+class StoreSimpanan extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return auth()->check();
     }
 
     /**
@@ -22,15 +22,12 @@ class StorePeminjaman extends FormRequest
     public function rules(): array
     {
         return [
-            'nama_lengkap' => 'required|string',
-            'no_hp' => 'required|string',
-            'email' => 'required|email',
-            'provinsi' => 'required|string',
-            'kota' => 'required|string',
-            'pekerjaan' => 'required|string',
-            'id_jaminan' => 'required|exists:tb_jenis_jaminan,id_jaminan',
-            'sertifikat_atas_nama' => 'required|string',
-            'id_jumlah_peminjaman' => 'required|exists:tb_list_jumlah_peminjaman,id_jumlah_peminjaman',
+            'nama_lengkap' => ['required', 'string'],
+            'no_telepon' => ['required', 'string'],
+            'email' => ['required', 'email'],
+            'provinsi' => ['required', 'string'],
+            'kota' => ['required', 'string'],
+            'id_jumlah_simpanan' => ['required', 'exists:tb_list_jumlah_simpanan,id'],
         ];
     }
 
@@ -43,16 +40,13 @@ class StorePeminjaman extends FormRequest
     {
         return [
             'nama_lengkap.required' => 'Nama lengkap wajib diisi',
-            'no_hp.required' => 'Nomor HP wajib diisi',
+            'no_telepon.required' => 'Nomor telepon wajib diisi',
             'email.required' => 'Email wajib diisi',
             'email.email' => 'Email tidak valid',
             'provinsi.required' => 'Provinsi wajib diisi',
             'kota.required' => 'Kota wajib diisi',
-            'pekerjaan.required' => 'Pekerjaan wajib diisi',
-            'id_jaminan.required' => 'Jaminan wajib diisi',
-            'id_jaminan.exists' => 'Jaminan tidak valid',
-            'sertifikat_atas_nama.required' => 'Sertifikat atas nama wajib diisi',
-            'jumlah_pinjaman.required' => 'Jumlah pinjaman wajib diisi',
+            'id_jumlah_simpanan.required' => 'Jumlah simpanan wajib diisi',
+            'id_jumlah_simpanan.exists' => 'Jumlah simpanan tidak valid',
         ];
     }
 }

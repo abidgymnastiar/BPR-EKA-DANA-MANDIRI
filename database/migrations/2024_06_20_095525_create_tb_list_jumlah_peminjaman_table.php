@@ -4,15 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('tb_jenis_jaminan', function (Blueprint $table) {
-            $table->id('id_jaminan');
-            $table->string('nama_jaminan', 50);
+        Schema::create('tb_list_jumlah_peminjaman', function (Blueprint $table) {
+            $table->id();
+            $table->string('jumlah_peminjaman');
             $table->foreignId('author_id')->constrained('users');
             $table->timestamps();
         });
@@ -23,6 +24,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('tb_jenis_jaminan');
+        Schema::dropIfExists('tb_list_jumlah_peminjaman');
     }
 };

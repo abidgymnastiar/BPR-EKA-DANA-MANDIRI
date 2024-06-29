@@ -12,8 +12,8 @@ class PromosiController extends Controller
 {
     public function index()
     {
-        $promosi = PromosiModel::paginate(10);
-        return view('admin.promosi.index',compact('promosi'));
+        $promosi = PromosiModel::orderBy('updated_at', 'desc')->paginate(10);
+        return view('admin.promosi.index', compact('promosi'));
     }
 
     public function create()

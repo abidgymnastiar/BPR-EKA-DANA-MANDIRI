@@ -20,10 +20,16 @@ class PeminjamanModel extends Model
         'id_jaminan',
         'sertifikat_atas_nama',
         'jumlah_pinjaman',
+        'id_jumlah_peminjaman',
     ];
 
     public function jenisJaminan()
     {
         return $this->belongsTo(JenisJaminanModel::class, 'id_jaminan', 'id_jaminan');
+    }
+
+    public function jumlahPeminjaman()
+    {
+        return $this->belongsTo(ListJumlahPeminjamanModel::class, 'id_jumlah_peminjaman', 'id');
     }
 }
