@@ -18,9 +18,8 @@
                     </svg>
                 </button>
                 <a href="{{ route('admin.dashboard') }}" class="text-md font-semibold flex items-center lg:mr-1.5">
-                    <i class="fa-solid fa-house-crack h-10 mx-5"></i>
+                    <img src="{{ asset('assets/logo/logobank.png') }}" class="mx-5 h-10" alt="">
 
-                    <span class="hidden md:inline-block self-center text-xl font-bold whitespace-nowrap">{{ config('app.name') }}</span>
                 </a>
 
             </div>
