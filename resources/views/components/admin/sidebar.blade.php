@@ -29,7 +29,7 @@
                             class="flex items-center py-2.5 px-4 text-base font-normal text-dark-500 rounded-lg hover:bg-gray-200 group transition-all duration-200 {{ isActiveRoute('admin.dashboard', true) ? '!hover:bg-white shadow-lg shadow-gray-200 bg-white' : '' }}"
                             sidebar-toggle-collapse>
                             <div
-                                class="bg-white shadow-lg shadow-gray-300  {{ isActiveRoute('admin.dashboard', true) ? 'bg-fuchsia-500 !text-white' : '' }}   text-dark-700 p-2.5 mr-1 rounded-lg text-center grid place-items-center">
+                                class="bg-white shadow-lg shadow-gray-300  {{ isActiveRoute('admin.dashboard', true) ? 'bg-red-500 !text-white' : '' }}   text-dark-700 p-2.5 mr-1 rounded-lg text-center grid place-items-center">
                                 <i class="fa fa-shopping-bag " aria-hidden="true"></i>
                             </div>
                             <span class="ml-3 text-dark-500 text-sm font-light" sidebar-toggle-item>Dashboard</span>
@@ -41,7 +41,7 @@
                             class="{{ isActiveRoute('admin.peminjam', true) ? '!hover:bg-white shadow-lg shadow-gray-200 bg-white' : '' }} flex items-center py-2.5 px-4 text-base font-normal text-dark-500 rounded-lg hover:bg-gray-200  group transition-all duration-200"
                             sidebar-toggle-collapse>
                             <div
-                                class="{{ isActiveRoute('admin.peminjam', true) ? 'bg-fuchsia-500 !text-white' : '' }} bg-white shadow-lg shadow-gray-300  text-dark-700 p-2.5 mr-1 rounded-lg text-center grid place-items-center">
+                                class="{{ isActiveRoute('admin.peminjam', true) ? 'bg-red-500 !text-white' : '' }} bg-white shadow-lg shadow-gray-300  text-dark-700 p-2.5 mr-1 rounded-lg text-center grid place-items-center">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </div>
                             <span class="ml-3 text-dark-500 text-sm font-light" sidebar-toggle-item>Peminjaman</span>
@@ -53,7 +53,7 @@
                             class="{{ isActiveRoute('admin.simpanan', true) ? '!hover:bg-white shadow-lg shadow-gray-200 bg-white' : '' }} flex items-center py-2.5 px-4 text-base font-normal text-dark-500 rounded-lg hover:bg-gray-200  group transition-all duration-200"
                             sidebar-toggle-collapse>
                             <div
-                                class="{{ isActiveRoute('admin.simpanan', true) ? 'bg-fuchsia-500 !text-white' : '' }} bg-white shadow-lg shadow-gray-300  text-dark-700 p-2.5 mr-1 rounded-lg text-center grid place-items-center">
+                                class="{{ isActiveRoute('admin.simpanan', true) ? 'bg-red-500 !text-white' : '' }} bg-white shadow-lg shadow-gray-300  text-dark-700 p-2.5 mr-1 rounded-lg text-center grid place-items-center">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </div>
                             <span class="ml-3 text-dark-500 text-sm font-light" sidebar-toggle-item>Simpanan</span>
@@ -65,7 +65,7 @@
                             class="{{ isActiveRoute('admin.kegiatan', true) ? '!hover:bg-white shadow-lg shadow-gray-200 bg-white' : '' }} flex items-center py-2.5 px-4 text-base font-normal text-dark-500 rounded-lg hover:bg-gray-200  group transition-all duration-200"
                             sidebar-toggle-collapse>
                             <div
-                                class="{{ isActiveRoute('admin.kegiatan', true) ? 'bg-fuchsia-500 !text-white' : '' }} bg-white shadow-lg shadow-gray-300  text-dark-700 p-2.5 mr-1 rounded-lg text-center grid place-items-center">
+                                class="{{ isActiveRoute('admin.kegiatan', true) ? 'bg-red-500 !text-white' : '' }} bg-white shadow-lg shadow-gray-300  text-dark-700 p-2.5 mr-1 rounded-lg text-center grid place-items-center">
                                 <i class="fa-solid fa-newspaper"></i>
                             </div>
                             <span class="ml-3 text-dark-500 text-sm font-light" sidebar-toggle-item>Kegiatan</span>
@@ -76,7 +76,7 @@
                             class="{{ isActiveRoute('admin.promosi', true) ? '!hover:bg-white shadow-lg shadow-gray-200 bg-white' : '' }} flex items-center py-2.5 px-4 text-base font-normal text-dark-500 rounded-lg hover:bg-gray-200  group transition-all duration-200"
                             sidebar-toggle-collapse>
                             <div
-                                class="{{ isActiveRoute('admin.promosi', true) ? 'bg-fuchsia-500 !text-white' : '' }} bg-white shadow-lg shadow-gray-300  text-dark-700 p-2.5 mr-1 rounded-lg text-center grid place-items-center">
+                                class="{{ isActiveRoute('admin.promosi', true) ? 'bg-red-500 !text-white' : '' }} bg-white shadow-lg shadow-gray-300  text-dark-700 p-2.5 mr-1 rounded-lg text-center grid place-items-center">
                                 <i class="fa-solid fa-newspaper"></i>
                             </div>
                             <span class="ml-3 text-dark-500 text-sm font-light" sidebar-toggle-item>Promosi</span>
@@ -89,7 +89,7 @@
                         class="{{ isActiveRoute('admin.peminjam.jaminan', true) ? '!hover:bg-white shadow-lg shadow-gray-200 bg-white' : '' }} flex items-center py-2.5 px-4 text-base font-normal text-dark-500 rounded-lg hover:bg-gray-200  group transition-all duration-200"
                         sidebar-toggle-collapse>
                         <div
-                            class="{{ isActiveRoute('admin.peminjam.jaminan', true) ? 'bg-fuchsia-500 !text-white' : '' }} bg-white shadow-lg shadow-gray-300  text-dark-700 p-2.5 mr-1 rounded-lg text-center grid place-items-center">
+                            class="{{ isActiveRoute('admin.peminjam.jaminan', true) ? 'bg-red-500 !text-white' : '' }} bg-white shadow-lg shadow-gray-300  text-dark-700 p-2.5 mr-1 rounded-lg text-center grid place-items-center">
                             <i class="fa-solid fa-newspaper"></i>
                         </div>
                         <span class="ml-3 text-dark-500 text-sm font-light" sidebar-toggle-item>Kategori Jaminan</span>
@@ -98,7 +98,7 @@
                         class="{{ isActiveRoute('admin.peminjam.kategori', true) ? '!hover:bg-white shadow-lg shadow-gray-200 bg-white' : '' }} flex items-center py-2.5 px-4 text-base font-normal text-dark-500 rounded-lg hover:bg-gray-200  group transition-all duration-200"
                         sidebar-toggle-collapse>
                         <div
-                            class="{{ isActiveRoute('admin.peminjam.kategori', true) ? 'bg-fuchsia-500 !text-white' : '' }} bg-white shadow-lg shadow-gray-300  text-dark-700 p-2.5 mr-1 rounded-lg text-center grid place-items-center">
+                            class="{{ isActiveRoute('admin.peminjam.kategori', true) ? 'bg-red-500 !text-white' : '' }} bg-white shadow-lg shadow-gray-300  text-dark-700 p-2.5 mr-1 rounded-lg text-center grid place-items-center">
                             <i class="fa-solid fa-newspaper"></i>
                         </div>
                         <span class="ml-3 text-dark-500 text-sm font-light" sidebar-toggle-item>Kategori Peminjaman</span>
@@ -107,7 +107,7 @@
                         class="{{ isActiveRoute('admin.simpanan.kategori', true) ? '!hover:bg-white shadow-lg shadow-gray-200 bg-white' : '' }} flex items-center py-2.5 px-4 text-base font-normal text-dark-500 rounded-lg hover:bg-gray-200  group transition-all duration-200"
                         sidebar-toggle-collapse>
                         <div
-                            class="{{ isActiveRoute('admin.simpanan.kategori', true) ? 'bg-fuchsia-500 !text-white' : '' }} bg-white shadow-lg shadow-gray-300  text-dark-700 p-2.5 mr-1 rounded-lg text-center grid place-items-center">
+                            class="{{ isActiveRoute('admin.simpanan.kategori', true) ? 'bg-red-500 !text-white' : '' }} bg-white shadow-lg shadow-gray-300  text-dark-700 p-2.5 mr-1 rounded-lg text-center grid place-items-center">
                             <i class="fa-solid fa-newspaper"></i>
                         </div>
                         <span class="ml-3 text-dark-500 text-sm font-light" sidebar-toggle-item>Kategori Simpanan</span>
