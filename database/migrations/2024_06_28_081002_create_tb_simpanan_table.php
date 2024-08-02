@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tb_simpanan', function (Blueprint $table) {
             $table->id();
             $table->string('nama_lengkap');
-            $table->string('no_telepon');
+            $table->string('no_hp');
             $table->string('email');
             $table->string('provinsi');
             $table->string('kota');
