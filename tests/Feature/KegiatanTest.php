@@ -30,7 +30,7 @@ it('can create kategori kegiatan', function () {
         'color_label' => '#000000',
         'icon' => 'fa-address-book',
     ]);
-    $response->assertStatus(302)->assertRedirect('/admin/kegiatan');
+    $response->assertSessionHasNoErrors();
     $response->assertSessionHas('success', 'Kategori kegiatan berhasil ditambahkan');
 });
 

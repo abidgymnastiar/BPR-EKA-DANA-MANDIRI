@@ -9,7 +9,10 @@ use function Pest\Laravel\delete;
 uses(RefreshDatabase::class);
 
 beforeEach(function () {
-    $this->seed();
+    // login as admin
+    $user = \App\Models\User::factory()->create();
+    \Pest\Laravel\actingAs($user);
+    \Pest\Laravel\seed();
 });
 
 test('create method success', function () {
@@ -20,15 +23,22 @@ test('create method success', function () {
         'provinsi' => 'Jawa Barat',
         'kota' => 'Bandung',
         'pekerjaan' => 'PNS',
-        'id_jaminan' => 1,
+        'id_jaminan' => \App\Models\JenisJaminanModel::first()->id_jaminan,
         'sertifikat_atas_nama' => 'pemohon/pasangan',
-        'jumlah_pinjaman' => '500 Juta - 1 Miliar',
+        'id_jumlah_peminjaman' => \App\Models\ListJumlahPeminjamanModel::factory()->create()->id,
     ];
-    $response = post('/peminjaman', $data);
+    $response = post(route('peminjaman.create'), $data);
+    $response->assertSessionHasNoErrors();
     $response->assertStatus(200);
     $response->assertJson([
         'data' => $data,
         'message' => 'Peminjaman berhasil disimpan',
+    ]);
+
+    // Additional assertions to check database state
+    $this->assertDatabaseHas('tb_peminjaman', [
+        'nama_lengkap' => 'John Doe',
+        'email' => 'test@example.com',
     ]);
 });
 
@@ -39,12 +49,12 @@ test('create method failure', function () {
 
 test('show method with existing data', function () {
     $peminjaman = PeminjamanModel::factory()->create();
-    $response = get("/peminjaman/show/$peminjaman->id_peminjaman");
+    $response = get(route('admin.peminjam.show', ['id' => $peminjaman->id_peminjaman]));
     $response->assertStatus(200);
 });
 
 test('show method with non-existing data', function () {
-    $response = get('/peminjaman/show/999');
+    $response = get(route('admin.peminjam.show', ['id' => 999]));
     $response->assertStatus(404);
     $response->assertJson([
         'message' => 'Data tidak ditemukan',

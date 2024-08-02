@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\JenisJaminanModel;
+use App\Models\ListJumlahPeminjamanModel;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -26,7 +27,7 @@ class PeminjamanModelFactory extends Factory
             'pekerjaan' => $this->faker->randomElement(['PNS', 'Pegawai Swasta', 'Pensiunan PNS', 'Pensiunan Biasa', 'TNI/Polri', 'Wiraswasta atau Pengusaha', 'Tidak Bekerja', 'Lainnya']),
             'id_jaminan' => JenisJaminanModel::all()->random()->id_jaminan,
             'sertifikat_atas_nama' => $this->faker->randomElement(['pemohon/pasangan', 'keluarga']),
-            'jumlah_pinjaman' => $this->faker->randomElement(['500 Juta - 1 Miliar', '1 Miliar - 2 Miliar']),
+            'id_jumlah_peminjaman' => ListJumlahPeminjamanModel::factory()->create()->id,
         ];
     }
 }

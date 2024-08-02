@@ -12,6 +12,7 @@ test('Redirect to Setup Page When No Users', function () {
     $response = get('/login');
     $response->assertRedirect('/setup');
 });
+
 test('Login Page', function () {
     User::factory()->create();
     $response = get('/login');

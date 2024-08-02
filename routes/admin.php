@@ -11,6 +11,7 @@ Route::get('/', function () {
 // Peminjam
 Route::prefix('peminjaman')->group(function () {
     Route::get('/', [PeminjamanController::class, 'index'])->name('peminjam');
+    Route::get('/show/{id}', [PeminjamanController::class, 'show'])->name('peminjam.show');
     Route::prefix('kategori')->group(function(){
         Route::get('/',[PeminjamanController::class,'index_kategori'])->name('peminjam.kategori');
         Route::get('/create',[PeminjamanController::class,'create_kategori'])->name('peminjam.kategori.create');

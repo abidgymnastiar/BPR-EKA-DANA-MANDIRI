@@ -30,7 +30,7 @@ class StorePeminjaman extends FormRequest
             'pekerjaan' => 'required|string',
             'id_jaminan' => 'required|exists:tb_jenis_jaminan,id_jaminan',
             'sertifikat_atas_nama' => 'required|string',
-            'id_jumlah_peminjaman' => 'required|exists:tb_list_jumlah_peminjaman,id_jumlah_peminjaman',
+            'id_jumlah_peminjaman' => 'required|exists:tb_list_jumlah_peminjaman,id',
         ];
     }
 

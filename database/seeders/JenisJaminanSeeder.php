@@ -14,11 +14,11 @@ class JenisJaminanSeeder extends Seeder
     public function run(): void
     {
         $data = [
-            ['nama_jaminan' => 'Sertifikat Tanah dan Bangunan (SHM/SHGB)',],
-            ['nama_jaminan' => 'BPKB Kendaraan Bermotor',],
-            ['nama_jaminan' => 'Sertifikat Tanah',],
-            ['nama_jaminan' => 'BPKB Mobil',],
-            ['nama_jaminan' => 'BPKB Motor',],
+            ['nama_jaminan' => 'Sertifikat Tanah dan Bangunan (SHM/SHGB)','author_id' => auth()->user()->id],
+            ['nama_jaminan' => 'BPKB Kendaraan Bermotor','author_id' => auth()->user()->id],
+            ['nama_jaminan' => 'Sertifikat Tanah','author_id' => auth()->user()->id],
+            ['nama_jaminan' => 'BPKB Mobil','author_id' => auth()->user()->id],
+            ['nama_jaminan' => 'BPKB Motor','author_id' => auth()->user()->id],
         ];
 
         foreach ($data as $item) {

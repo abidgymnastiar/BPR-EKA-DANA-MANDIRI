@@ -34,7 +34,7 @@ class PeminjamanController extends Controller
         return response()->json([
             'data' => $peminjaman,
             'message' => 'Peminjaman berhasil disimpan',
-        ], 200);
+        ]);
     }
 
     // delete method
