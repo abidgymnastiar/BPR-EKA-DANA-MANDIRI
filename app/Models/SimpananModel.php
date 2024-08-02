@@ -12,11 +12,12 @@ class SimpananModel extends Model
     protected $table = 'tb_simpanan';
     protected $fillable = [
         'nama_lengkap',
-        'no_telepon',
+        'no_hp',
         'email',
         'provinsi',
         'kota',
         'id_jumlah_simpanan',
+        'status',
     ];
 
     public function jumlahSimpanan()
