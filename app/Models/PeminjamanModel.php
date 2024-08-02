@@ -21,6 +21,7 @@ class PeminjamanModel extends Model
         'sertifikat_atas_nama',
         'jumlah_pinjaman',
         'id_jumlah_peminjaman',
+        'status',
     ];
 
     public function jenisJaminan()
