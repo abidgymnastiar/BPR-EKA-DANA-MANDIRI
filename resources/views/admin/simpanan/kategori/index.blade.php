@@ -1,25 +1,8 @@
 <x-layout.admin>
     <div id="main-content" class="h-full overflow-y-auto bg-gray-50 relative lg:ml-64 pt-16">
         <main>
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>
-                                <div class="p-4 mb-4 text-sm text-white bg-gradient-to-br from-pink-500 to-voilet-500 rounded-lg"
-                                    role="alert">
-                                    <span class="font-medium">{{ $error }}</span>
-                                </div>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            @session('success')
-                <div class="p-4 mb-4 text-sm text-white bg-gradient-to-br bg-blue-700 rounded-lg" role="alert">
-                    <span class="font-medium">{{ session('success') }}</span>
-                </div>
-            @endsession
+            <x-admin.alert />
+
             <div class="flex px-4 pt-2 justify-between">
                 <a href="{{ route('admin.simpanan.kategori.create') }}"
                     class="text-white bg-gradient-to-br from-pink-500 to-voilet-500 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 text-center inline-flex items-center shadow-md shadow-gray-300 hover:scale-[1.02] transition-transform">
