@@ -2,18 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\PeminjamanModel;
-use Database\Factories\PeminjamanModelFactory;
+use App\Models\SimpananModel;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class PeminjamanSeeder extends Seeder
+class SimpananSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        PeminjamanModel::factory(10)->create();
+        SimpananModel::factory()->count(10)->create();
     }
 }
