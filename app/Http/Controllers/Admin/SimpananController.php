@@ -14,7 +14,56 @@ class SimpananController extends Controller
 {
     public function index()
     {
-        return view('admin.simpanan.index');
+        $filter = (object) array(
+            'Ascending' => (object) [
+                'data' => (object) [
+                    'tanggal' => (object) [
+                        'label' => 'Tanggal',
+                        'value' => 'filter=created_at&order=asc',
+                        'route' => 'admin.simpanan',
+                    ]
+                ],
+            ],
+            'Descending' => (object) [
+                'data' => (object) [
+                    'tanggal' => (object) [
+                        'label' => 'Tanggal',
+                        'value' => 'filter=created_at&order=desc',
+                        'route' => 'admin.simpanan',
+                    ]
+                ],
+            ],
+            'Status' => (object) [
+                'data' => (object) [
+                    'pending' => (object) [
+                        'label' => 'Pending',
+                        'value' => 'filter=status&where=pending',
+                        'route' => 'admin.simpanan',
+                    ],
+                    'done' => (object) [
+                        'label' => 'Done',
+                        'value' => 'filter=status&where=done',
+                        'route' => 'admin.simpanan',
+                    ],
+                    'rejected' => (object) [
+                        'label' => 'Rejected',
+                        'value' => 'filter=status&where=rejected',
+                        'route' => 'admin.simpanan',
+                    ],
+                    'process' => (object) [
+                        'label' => 'Process',
+                        'value' => 'filter=status&where=process',
+                        'route' => 'admin.simpanan',
+                    ],
+                ],
+            ],
+        );
+
+        $query = SimpananModel::query();
+        $query = $this->filter($query, request());
+        $query = $this->search($query, request());
+        $simpanan = $query->paginate(10);
+        return view('admin.simpanan.index',compact('filter', 'simpanan'));
     }
 
     // show
@@ -98,6 +147,45 @@ class SimpananController extends Controller
         } catch (\Exception $e) {
             DB::rollBack();
             return redirect()->route('admin.simpanan.kategori')->withErrors('Kategori jumlah simpanan gagal dihapus');
+        }
+    }
+
+    // private function to handle the filter query
+    private function filter($query, Request $request)
+    {
+        if ($request->has('filter') && $request->has('where')) {
+            $query->where($request->filter, $request->where);
+        }
+        if ($request->has('filter') && $request->has('order')) {
+            $query->orderBy($request->filter, $request->order);
+        }
+        return $query;
+    }
+
+    private function search($query, Request $request)
+    {
+        if ($request->has('search')) {
+            $query->where('nama_lengkap', 'like', '%' . $request->search . '%');
+        }
+        return $query;
+    }
+
+    public function update_status_simpanan(Request $request)
+    {
+        DB::beginTransaction();
+        try {
+            $simpanan = SimpananModel::find($request->id_simpanan);
+            if ($simpanan) {
+                $simpanan->status = $request->status;
+                $simpanan->save();
+                DB::commit();
+                return redirect()->route('admin.simpanan')->with('success', 'Status simpanan berhasil diubah');
+            } else {
+                throw new \Exception('Data tidak ditemukan');
+            }
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->route('admin.simpanan')->withErrors('Status simpanan gagal diubah');
         }
     }
 }
