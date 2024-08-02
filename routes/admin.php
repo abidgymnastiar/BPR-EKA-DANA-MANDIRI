@@ -43,6 +43,8 @@ Route::prefix('simpanan')->group(function () {
         Route::put('/{id}',[SimpananController::class,'update_kategori'])->name('simpanan.kategori.update');
         Route::delete('/delete/{id}',[SimpananController::class,'delete_kategori'])->name('simpanan.kategori.delete');
     });
+
+    Route::put('/update-status',[SimpananController::class,'update_status_simpanan'])->name('simpanan.update-status');
 });
 // Kegiatan
 Route::prefix('kegiatan')->group(function () {
