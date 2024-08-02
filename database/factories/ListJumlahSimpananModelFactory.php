@@ -6,9 +6,9 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ListJumlahSimpananModel>
  */
-class ListJumlahPeminjamanModelFactory extends Factory
+class ListJumlahSimpananModelFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,7 +19,7 @@ class ListJumlahPeminjamanModelFactory extends Factory
     {
         $user = User::all()->random() ?? User::factory()->create();
         return [
-            'jumlah_peminjaman' => $this->faker->randomNumber(5),
+            'jumlah_simpanan' => $this->faker->randomNumber(5),
             'author_id' => $user->id,
         ];
     }
