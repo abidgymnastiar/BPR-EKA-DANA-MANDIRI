@@ -36,7 +36,7 @@
                         </a>
                     </li>
 
-                    <li>
+                    {{-- <li>
                         <a href="{{ route('admin.peminjam') }}"
                             class="{{ isActiveRoute('admin.peminjam', true) ? '!hover:bg-white shadow-lg shadow-gray-200 bg-white' : '' }} flex items-center py-2.5 px-4 text-base font-normal text-dark-500 rounded-lg hover:bg-gray-200  group transition-all duration-200"
                             sidebar-toggle-collapse>
@@ -46,9 +46,9 @@
                             </div>
                             <span class="ml-3 text-dark-500 text-sm font-light" sidebar-toggle-item>Peminjaman</span>
                         </a>
-                    </li>
+                    </li> --}}
 
-                    <li>
+                    {{-- <li>
                         <a href="{{ route('admin.simpanan') }}"
                             class="{{ isActiveRoute('admin.simpanan', true) ? '!hover:bg-white shadow-lg shadow-gray-200 bg-white' : '' }} flex items-center py-2.5 px-4 text-base font-normal text-dark-500 rounded-lg hover:bg-gray-200  group transition-all duration-200"
                             sidebar-toggle-collapse>
@@ -58,7 +58,7 @@
                             </div>
                             <span class="ml-3 text-dark-500 text-sm font-light" sidebar-toggle-item>Simpanan</span>
                         </a>
-                    </li>
+                    </li> --}}
 
                     <li>
                         <a href="{{ route('admin.kegiatan') }}"
@@ -84,7 +84,7 @@
                     </li>
                 </ul>
                 <hr class="border-0 h-px bg-gradient-to-r from-gray-100 via-gray-300 to-gray-100">
-                <div class="pt-2">
+                {{-- <div class="pt-2">
                     <a href="{{ route('admin.peminjam.jaminan') }}"
                         class="{{ isActiveRoute('admin.peminjam.jaminan', true) ? '!hover:bg-white shadow-lg shadow-gray-200 bg-white' : '' }} flex items-center py-2.5 px-4 text-base font-normal text-dark-500 rounded-lg hover:bg-gray-200  group transition-all duration-200"
                         sidebar-toggle-collapse>
@@ -112,7 +112,7 @@
                         </div>
                         <span class="ml-3 text-dark-500 text-sm font-light" sidebar-toggle-item>Kategori Simpanan</span>
                     </a>
-                </div>
+                </div> --}}
             </div>
         </div>
 </aside>
