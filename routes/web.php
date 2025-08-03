@@ -39,3 +39,7 @@ Route::get('/info', function () {
     return view('user.info');
 })->name('info');
 
+Route::get('/formulir', function () {
+    return view('user.formulir');
+})->name('formulir');
+
