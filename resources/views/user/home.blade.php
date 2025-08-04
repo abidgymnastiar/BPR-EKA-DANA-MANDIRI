@@ -26,7 +26,7 @@
             <div class=" text-center">
                 <h1 class="text-center font-bold text-4xl sm:text-5xl leading-tight text-[#151313]">Mengenal Lebih
                     Dekat
-                    <span class="text-[#f00204]">Bank Edanan</span>
+                    <span class="text-[#f00204]">Bank Edaman</span>
                 </h1>
                 <p class="mt-8 text-center mx-auto lg:w-auto md:w-1/2 text-gray-500">
                     Selamat datang di Bank Edanan (BPR EKA DANA MANDIRI), mitra finansial terpercaya Anda yang
@@ -129,7 +129,7 @@
                 <img class="w-[540px]" src="{{ asset('assets/user/cover/home4.webp') }}" alt="">
             </div>
             <div class="p-3">
-                <h3 class="text-lg font-medium font-sans text-red-700">Deposito Bank Edanan</h3>
+                <h3 class="text-lg font-medium font-sans text-red-700">Deposito Bank Edaman</h3>
                 <h1 class="text-[44px] font-sans font-extrabold mb-2 text-red-800">Deposito yang Aman dan Menguntungkan
                 </h1>
                 <p class="text-[#2c3655] text-base tracking-wide mb-7">Optimalkan simpanan Anda dengan layanan deposito
