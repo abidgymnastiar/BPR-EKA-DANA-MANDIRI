@@ -79,7 +79,7 @@
     <section class="kredit max-w-screen-xl mx-auto mt-5 py-10">
         <div class="grid grid-cols-2 items-center gap-x-5">
             <div class="p-3">
-                <h3 class="text-lg font-medium font-sans text-red-700">Kredit Bank Edanan</h3>
+                <h3 class="text-lg font-medium font-sans text-red-700">Kredit Bank Edaman</h3>
                 <h1 class="text-[44px] font-sans font-extrabold mb-2 text-red-800">Pinjaman Cepat dan Mudah</h1>
                 <p class="text-[#2c3655] text-base tracking-wide mb-7">Nikmati layanan kredit kami dengan suku bunga
                     kompetitif dan persyaratan yang mudah. Dari kredit pribadi hingga kredit usaha, kami siap membantu

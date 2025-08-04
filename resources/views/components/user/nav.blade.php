@@ -33,13 +33,13 @@
                         <a href="#"
                             class="block py-2 px-3 text-gray-600 hover:text-red-950/25 bg-blue-700 rounded md:bg-transparent">Pinjam</a>
                     </li> --}}
-                    <li>
+                    {{-- <li>
                         <a href="{{ route('info') }}"
                             class="block py-2 px-3 text-gray-600 hover:text-red-950/25 bg-blue-700 rounded md:bg-transparent">Info</a>
-                    </li>
+                    </li> --}}
                     <li>
                         <a href="{{ route('formulir') }}"
-                            class="block py-2 px-3 text-gray-600 hover:text-red-950/25 bg-black">Formulir</a>
+                            class="block py-2 px-3 text-gray-600 hover:text-red-950/25 bg-white">Formulir</a>
                     </li>
                 </ul>
             </div>
