@@ -19,6 +19,8 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script defer src="https://unpkg.com/tailwindcss-intersect@1.x.x/dist/observer.min.js"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdn.jsdelivr.net/npm/print-js@1.6.0/dist/print.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/print-js@1.6.0/dist/print.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-[#f1f4f5]">
