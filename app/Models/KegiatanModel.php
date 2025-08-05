@@ -50,14 +50,15 @@ class KegiatanModel extends Model
      *
      * @return string
      */
-    public function getGambar(): string
+    public function getGambarUrlAttribute()
     {
-        if ($this->gambar == null || !file_exists(public_path('storage/kegiatan/' . $this->gambar))) {
+        if (!$this->gambar || !file_exists(public_path('uploads/kegiatan/' . $this->gambar))) {
             return asset('assets/images/not-found.avif');
-        } else {
-            return asset('storage/kegiatan/' . $this->gambar);
         }
+
+        return asset('uploads/kegiatan/' . $this->gambar);
     }
+
 
     public function getKategori(): string
     {

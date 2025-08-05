@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 /**
  * Class KegiatanController
- * 
+ *
  * @category Controller
  * @package  App\Http\Controllers\Admin
  * @author   Edoaurahman <edoaurahman@gmail.com>
@@ -44,7 +44,15 @@ class KegiatanController extends Controller
             $kegiatan->isi = $request->isi;
             $kegiatan->tgl_mulai = $request->tgl_mulai;
             $kegiatan->tgl_selesai = $request->tgl_selesai;
-            $kegiatan->gambar = $request->gambar->hashName();
+            // $kegiatan->gambar = $request->gambar->hashName();
+            $gambar = $request->file('gambar');
+            $gambarName = time() . '_' . $gambar->getClientOriginalName();
+
+            // Pindahkan file ke folder public/uploads/kegiatan
+            $gambar->move(public_path('uploads/kegiatan'), $gambarName);
+
+            // Simpan nama file ke database
+            $kegiatan->gambar = $gambarName;
             $kegiatan->author = auth()->id();
             $kegiatan->save();
             foreach ($request->kategori as $kategori) {
@@ -56,7 +64,7 @@ class KegiatanController extends Controller
             DB::commit();
 
             // save image
-            $request->gambar->storeAs('public/kegiatan', $request->gambar->hashName());
+            // $request->gambar->storeAs('public/kegiatan', $request->gambar->hashName());
             return redirect()->route('admin.kegiatan')->with('success', 'Kegiatan berhasil ditambahkan');
         } catch (\Throwable $e) {
             DB::rollBack();
