@@ -6,7 +6,7 @@
                 Tambah Kegiatan
                 <i class="fa fa-plus ml-1 font-bold" aria-hidden="true"></i>
             </a>
-            <x-admin.search-form action="{{ route('admin.kegiatan') }}"/>
+            <x-admin.search-form action="{{ route('admin.kegiatan') }}" />
         </div>
         <x-admin.alert />
         <main>
@@ -42,7 +42,8 @@
                                         <tr class="hover:bg-gray-100">
                                             <td
                                                 class="flex items-center p-4 mr-12 space-x-6 whitespace-nowrap lg:p-5 lg:mr-0">
-                                                <img class="w-8 h-8 rounded modal-image" src="{{ $item->getGambar() }}"
+                                                <img class="w-8 h-8 rounded modal-image"
+                                                    src="{{ asset('uploads/kegiatan/' . $item->gambar) }}"
                                                     alt="Neil Sims avatar">
                                                 <div class="text-sm font-normal text-gray-500">
                                                     <div class="text-base font-semibold text-gray-900">
