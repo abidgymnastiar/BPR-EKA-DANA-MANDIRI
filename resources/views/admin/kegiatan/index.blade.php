@@ -43,7 +43,7 @@
                                             <td
                                                 class="flex items-center p-4 mr-12 space-x-6 whitespace-nowrap lg:p-5 lg:mr-0">
                                                 <img class="w-8 h-8 rounded modal-image"
-                                                    src="{{ asset('uploads/kegiatan/' . $item->gambar) }}"
+                                                    src="{{ asset('kegiatan/' . $item->gambar) }}"
                                                     alt="Neil Sims avatar">
                                                 <div class="text-sm font-normal text-gray-500">
                                                     <div class="text-base font-semibold text-gray-900">

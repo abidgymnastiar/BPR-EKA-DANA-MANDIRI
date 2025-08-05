@@ -32,36 +32,41 @@ class KegiatanController extends Controller
     public function index()
     {
         $kegiatan = KegiatanModel::orderBy('updated_at', 'desc')->paginate(10);
+        // dd($kegiatan);
         return view('admin.kegiatan.index', compact('kegiatan'));
     }
 
     public function store(StoreKegiatan $request)
     {
         try {
-            DB::beginTransaction();
-            $kegiatan = new KegiatanModel();
-            $kegiatan->nama_kegiatan = $request->nama_kegiatan;
-            $kegiatan->isi = $request->isi;
-            $kegiatan->tgl_mulai = $request->tgl_mulai;
-            $kegiatan->tgl_selesai = $request->tgl_selesai;
-            // $kegiatan->gambar = $request->gambar->hashName();
-            $gambar = $request->file('gambar');
-            $gambarName = time() . '_' . $gambar->getClientOriginalName();
+            // DB::beginTransaction();
+            // $kegiatan = new KegiatanModel();
+            $validate = $request->validate([
+                "nama_kegiatan" => "required",
+                "isi" => "required",
+                "tgl_mulai" => "required",
+                "tgl_selesai" => "required",
+            ]);
+            // if ($request->file('gambar')) {
+            //     $namacover = "$request->nama" . "." . $validateDate['gambar']->getClientOriginalExtension();
+            //     $validateDate['gambar']  = $validateDate['gambar']->storeAs("kegiatan", $namacover);
+            // }
+            if ($request->file('gambar')) {
+                $image = $request->file('gambar');
+                $imageName = time() . 'gambar.' . $image->getClientOriginalExtension();
+                $image->move(public_path('kegiatan'), $imageName);
+                $validate['gambar'] = $imageName;
+            }
+            $validate['author'] = auth()->id();
 
-            // Pindahkan file ke folder public/uploads/kegiatan
-            $gambar->move(public_path('uploads/kegiatan'), $gambarName);
-
-            // Simpan nama file ke database
-            $kegiatan->gambar = $gambarName;
-            $kegiatan->author = auth()->id();
-            $kegiatan->save();
+            $kegiatan = KegiatanModel::create($validate);
             foreach ($request->kategori as $kategori) {
                 $kegiatan->kategori()->create([
                     'kegiatan_id' => $kegiatan->id,
                     'kegiatan_kategori_id' => $kategori,
                 ]);
             }
-            DB::commit();
+            // dd($kegiatan);
 
             // save image
             // $request->gambar->storeAs('public/kegiatan', $request->gambar->hashName());

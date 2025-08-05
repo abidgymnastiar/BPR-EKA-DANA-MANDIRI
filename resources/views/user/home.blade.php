@@ -224,7 +224,8 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
             @foreach ($promosi as $item)
                 <div>
-                    <img class="h-auto max-w-full rounded-lg modal-image" src="{{ $item->getGambar() }}" alt="">
+                    <img class="h-auto max-w-full rounded-lg modal-image" src="{{ $item->getGambar() }}"
+                        alt="">
                 </div>
             @endforeach
         </div>
@@ -253,7 +254,7 @@
                         <div class="items w-full h-full m-auto rounded-2xl shadow-md  ">
                             <div class="item-img pb-5">
                                 <img class=" rounded-t-lg h-[200px] w-full object-cover"
-                                    src="{{ asset('assets/user/banner/banner1.png') }}" alt="">
+                                    src="{{ asset('kegiatan/' . $item->gambar) }}" alt="">
                             </div>
                             <div class="item-info p-5">
                                 <div class="item-rating flex justify-between items-center mt-3">
@@ -349,5 +350,5 @@
             },
         });
     </script>
-    <x-image-modal/>
+    <x-image-modal />
 </x-layout.user>
