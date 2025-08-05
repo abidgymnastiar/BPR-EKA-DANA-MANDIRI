@@ -6,7 +6,7 @@
                 Tambah Promosi
                 <i class="fa fa-plus ml-1 font-bold" aria-hidden="true"></i>
             </a>
-            <x-admin.search-form action="{{ route('admin.promosi') }}"/>
+            <x-admin.search-form action="{{ route('admin.promosi') }}" />
         </div>
         <x-admin.alert />
         <main>
@@ -51,7 +51,7 @@
                                             <td
                                                 class="p-4 text-base font-medium text-gray-900 whitespace-nowrap lg:p-5">
                                                 <img class="h-12 rounded modal-image"
-                                                    src="{{ $item->getGambar() }}" alt="gambar promosi">
+                                                    src="{{ asset('promosi/' . $item->gambar) }}" alt="gambar promosi">
                                             </td>
                                             <td
                                                 class="p-4 text-base font-medium text-gray-900 whitespace-nowrap lg:p-5">

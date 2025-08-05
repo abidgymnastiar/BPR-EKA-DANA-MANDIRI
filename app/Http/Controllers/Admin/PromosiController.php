@@ -24,15 +24,19 @@ class PromosiController extends Controller
     public function store(StorePromosi $request)
     {
         try {
-            DB::beginTransaction();
-            $promosi = new PromosiModel();
-            $promosi->nama = $request->nama;
-            $promosi->deskripsi = $request->deskripsi;
-            $promosi->gambar = $request->gambar->hashName();
-            $promosi->author = auth()->id();
-            $promosi->save();
-            DB::commit();
-            $request->gambar->storeAs('public/promosi', $request->gambar->hashName());
+            $validate = $request->validate([
+                "nama" => "required",
+                "deskripsi" => "required",
+            ]);
+            if ($request->file('gambar')) {
+                $image = $request->file('gambar');
+                $imageName = time() . 'gambar.' . $image->getClientOriginalExtension();
+                $image->move(public_path('promosi'), $imageName);
+                $validate['gambar'] = $imageName;
+            }
+            $validate['author'] = auth()->id();
+
+            $promosi = PromosiModel::create($validate);
             return redirect()->route('admin.promosi')->with('success', 'Promosi berhasil ditambahkan');
         } catch (\Throwable $e) {
             DB::rollBack();
@@ -49,14 +53,18 @@ class PromosiController extends Controller
     public function update(Request $request, $id)
     {
         try {
+            // dd($request->all());
             DB::beginTransaction();
             $promosi = PromosiModel::findOrFail($id);
             $promosi->nama = $request->nama;
             $promosi->deskripsi = $request->deskripsi;
             if ($request->hasFile('gambar')) {
                 $this->deleteGambar($promosi->gambar);
-                $promosi->gambar = $request->gambar->hashName();
-                $request->gambar->storeAs('public/promosi', $request->gambar->hashName());
+                $image = $request->file('gambar');
+                $imageName = time() . 'gambar.' . $image->getClientOriginalExtension();
+                $image->move(public_path('promosi'), $imageName);
+                $promosi->gambar = $imageName;
+                // $request->gambar->storeAs('public/promosi', $request->gambar->hashName());
             }
             $promosi->save();
             DB::commit();
@@ -84,8 +92,13 @@ class PromosiController extends Controller
 
     private function deleteGambar(string $file)
     {
-        if (file_exists(storage_path('app/public/promosi/' . $file))) {
-            unlink(storage_path('app/public/promosi/' . $file));
+        // if (file_exists(storage_path('app/public/promosi/' . $file))) {
+        //     unlink(storage_path('app/public/promosi/' . $file));
+        // }
+        $filePath = public_path('promosi/' . $file);
+
+        if (file_exists($filePath)) {
+            unlink($filePath);
         }
     }
 }

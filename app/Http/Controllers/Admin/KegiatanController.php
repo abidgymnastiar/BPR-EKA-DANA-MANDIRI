@@ -39,18 +39,12 @@ class KegiatanController extends Controller
     public function store(StoreKegiatan $request)
     {
         try {
-            // DB::beginTransaction();
-            // $kegiatan = new KegiatanModel();
             $validate = $request->validate([
                 "nama_kegiatan" => "required",
                 "isi" => "required",
                 "tgl_mulai" => "required",
                 "tgl_selesai" => "required",
             ]);
-            // if ($request->file('gambar')) {
-            //     $namacover = "$request->nama" . "." . $validateDate['gambar']->getClientOriginalExtension();
-            //     $validateDate['gambar']  = $validateDate['gambar']->storeAs("kegiatan", $namacover);
-            // }
             if ($request->file('gambar')) {
                 $image = $request->file('gambar');
                 $imageName = time() . 'gambar.' . $image->getClientOriginalExtension();
@@ -66,10 +60,6 @@ class KegiatanController extends Controller
                     'kegiatan_kategori_id' => $kategori,
                 ]);
             }
-            // dd($kegiatan);
-
-            // save image
-            // $request->gambar->storeAs('public/kegiatan', $request->gambar->hashName());
             return redirect()->route('admin.kegiatan')->with('success', 'Kegiatan berhasil ditambahkan');
         } catch (\Throwable $e) {
             DB::rollBack();
@@ -149,11 +139,18 @@ class KegiatanController extends Controller
             $kegiatan->isi = $request->isi;
             $kegiatan->tgl_mulai = $request->tgl_mulai;
             $kegiatan->tgl_selesai = $request->tgl_selesai;
-            if ($request->hasFile('gambar')) {
+            if ($request->file('gambar')) {
                 $this->deleteGambarKegiatan($kegiatan->gambar);
-                $kegiatan->gambar = $request->gambar->hashName();
-                $request->gambar->storeAs('public/kegiatan', $request->gambar->hashName());
+                $image = $request->file('gambar');
+                $imageName = time() . 'gambar.' . $image->getClientOriginalExtension();
+                $image->move(public_path('kegiatan'), $imageName);
+                // $validate['gambar'] = $imageName;
+                // $kegiatan->gambar = $request->gambar->hashName();
+                // $request->gambar->storeAs('public/kegiatan', $request->gambar->hashName());
+
+                $kegiatan->gambar = $imageName;
             }
+
             $kegiatan->save();
             $kegiatan->kategori()->delete();
             foreach ($request->kategori as $kategori) {
@@ -194,8 +191,13 @@ class KegiatanController extends Controller
 
     private function deleteGambarKegiatan(string $file)
     {
-        if (file_exists(storage_path('app/public/kegiatan/' . $file))) {
-            unlink(storage_path('app/public/kegiatan/' . $file));
+        // if (file_exists(storage_path('app/public/kegiatan/' . $file))) {
+        //     unlink(storage_path('app/public/kegiatan/' . $file));
+        // }
+        $filePath = public_path('kegiatan/' . $file);
+
+        if (file_exists($filePath)) {
+            unlink($filePath);
         }
     }
 }

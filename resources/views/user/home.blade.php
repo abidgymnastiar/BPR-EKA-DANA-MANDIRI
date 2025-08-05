@@ -224,8 +224,8 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
             @foreach ($promosi as $item)
                 <div>
-                    <img class="h-auto max-w-full rounded-lg modal-image" src="{{ $item->getGambar() }}"
-                        alt="">
+                    <img class="h-auto max-w-full rounded-lg modal-image"
+                        src="{{ asset('promosi/' . $item->gambar) }}" alt="">
                 </div>
             @endforeach
         </div>
