@@ -50,7 +50,7 @@ class KegiatanModel extends Model
      *
      * @return string
      */
-    public function getGambarUrlAttribute()
+    public function getGambar()
     {
         if (!$this->gambar || !file_exists(public_path('uploads/kegiatan/' . $this->gambar))) {
             return asset('assets/images/not-found.avif');
