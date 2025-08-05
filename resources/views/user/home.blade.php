@@ -249,7 +249,7 @@
         </div>
         <div class="grid grid-cols-4 mt-10 gap-8">
             @foreach ($kegiatan as $item)
-                <a href="#">
+                <div>
                     <div class="group relative dark:bg-ungu_muda rounded-2xl">
                         <div class="items w-full h-full m-auto rounded-2xl shadow-md  ">
                             <div class="item-img pb-5">
@@ -262,16 +262,17 @@
                                     </p>
                                 </div>
                                 <p class="item-desc text-gray-500 text-xs truncate">{{ $item->getCuplikanIsi() }}</p>
-                                <div
-                                    class="item price text-red-600 group-hover:text-red-800  group-dark:hover:text-purple-700 text-sm font-medium my-3">
-                                    Selengkapnya
-                                </div>
+                               <button
+                        class="item price text-red-600 group-hover:text-red-800 group-dark:hover:text-purple-700 text-sm font-medium my-3 open-modal"
+                        data-nama="{{ $item->nama_kegiatan }}"
+                        data-isi="{{ $item->getCuplikanIsi() }}">
+                        Selengkapnya
+                    </button>
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
             @endforeach
-
         </div>
     </section>
 
@@ -351,4 +352,34 @@
         });
     </script>
     <x-image-modal />
+    <x-modal-kegiatan />
+    <script>
+    const modal = document.getElementById('modal-kegiatan');
+    const modalTitle = document.getElementById('modal-title');
+    const modalContent = document.getElementById('modal-content');
+    const closeModal = document.getElementById('close-modal');
+
+    document.querySelectorAll('.open-modal').forEach(button => {
+        button.addEventListener('click', () => {
+            const nama = button.getAttribute('data-nama');
+            const isi = button.getAttribute('data-isi');
+
+            modalTitle.textContent = nama;
+            modalContent.textContent = isi;
+
+            modal.classList.remove('hidden');
+        });
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.classList.add('hidden');
+    });
+
+    // Optional: tutup modal jika klik di luar area modal
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.add('hidden');
+        }
+    });
+</script>
 </x-layout.user>
