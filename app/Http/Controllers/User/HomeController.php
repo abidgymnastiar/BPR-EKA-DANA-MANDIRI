@@ -19,4 +19,12 @@ class HomeController extends Controller
         // Kalau perlu mengirim data ke view, bisa ditambahkan disini
         return view('components.user.detail-kredit');
     }
+     public function detailDeposito(){
+        // Kalau perlu mengirim data ke view, bisa ditambahkan disini
+        return view('components.user.detail-deposito');
+    }
+     public function detailTabungan(){
+        // Kalau perlu mengirim data ke view, bisa ditambahkan disini
+        return view('components.user.detail-tabungan');
+    }
 }

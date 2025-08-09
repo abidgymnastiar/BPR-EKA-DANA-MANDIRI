@@ -27,6 +27,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/detail-kredit', [HomeController::class, 'detailKredit'])->name('detail.kredit');
+Route::get('/detail-deposito', [HomeController::class, 'detailDeposito'])->name('detail.deposito');
+Route::get('/detail-tabungan', [HomeController::class, 'detailTabungan'])->name('detail.tabungan');
 
 
 Route::get('/tentangKami', function () {
