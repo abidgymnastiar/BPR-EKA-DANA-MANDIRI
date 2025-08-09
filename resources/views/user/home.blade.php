@@ -3,15 +3,15 @@
         <div class="swiper mySwiperheader">
             <div class="swiper-wrapper h-full w-full">
                 <div class="swiper-slide text-center">
-                    <img class="h-full mx-auto bg-cover" src="{{ asset('assets/user/banner/header1.png') }}"
+                    <img class="h-full w-full mx-auto bg-cover" src="{{ asset('assets/user/banner/header1.png') }}"
                         alt="">
                 </div>
                 <div class="swiper-slide text-center ">
-                    <img class="h-full mx-auto bg-cover" src="{{ asset('assets/user/banner/header2.png') }}"
+                    <img class="h-full w-full mx-auto bg-cover" src="{{ asset('assets/user/banner/header2.png') }}"
                         alt="">
                 </div>
                 <div class="swiper-slide text-center ">
-                    <img class="h-full mx-auto bg-cover" src="{{ asset('assets/user/banner/header3.webp') }}"
+                    <img class="h-full w-full mx-auto bg-cover" src="{{ asset('assets/user/banner/header3.webp') }}"
                         alt="">
                 </div>
             </div>
