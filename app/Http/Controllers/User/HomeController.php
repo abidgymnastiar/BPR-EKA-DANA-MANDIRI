@@ -14,4 +14,9 @@ class HomeController extends Controller
         $promosi = PromosiModel::limit(12)->get();
         return view('user.home',compact('kegiatan','promosi'));
     }
+
+     public function detailKredit(){
+        // Kalau perlu mengirim data ke view, bisa ditambahkan disini
+        return view('components.user.detail-kredit');
+    }
 }

@@ -26,6 +26,8 @@ Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('adm
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/detail-kredit', [HomeController::class, 'detailKredit'])->name('detail.kredit');
+
 
 Route::get('/tentangKami', function () {
     return view('user.tentangKami');
